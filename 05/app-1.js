@@ -12,8 +12,6 @@ let totalRingElements = 30;
 
 function generateAllElements() {
 
-  for(let a = 0; a < totalRingElements; a++){
-
     // element params
     let totalCircleElements = getRandomNumber(10, 3);
     let elementScale = getRandomNumber(3, 1);
@@ -36,34 +34,15 @@ function generateAllElements() {
       let circleElement = document.createElement('a-entity');
       circleElement.setAttribute('class', `circleElement`);
       circleElement.setAttribute('scale', `${elementScale} ${elementScale} ${elementScale}`);
-      circleElement.setAttribute('material', `color:#${getRandomColor()}; metalness: 0; roughness: 0`);
+      circleElement.setAttribute('material', `color: red; metalness: 0; roughness: 0`);
       circleElement.setAttribute('geometry', `primitive: sphere; radius: 1.5`);
-      circleElement.setAttribute('animation__yoyo', `property: scale; dir: alternate; dur: ${scaleDuration}; easing: easeInOutSine; loop: true; to: 0 0 0`);
       circleElementContainer.appendChild(circleElement);
       rotateContainer.appendChild(circleElementContainer);
 
-      // generate path and apply it
-      let track1 = document.createElement('a-curve');
-      track1.setAttribute('class', `track${a}`);
-      scene.append(track1);
-      let point1 = document.createElement('a-curve-point');
-      point1.setAttribute('position', '0 0 0');
-      track1.append(point1);
-      let point2 = document.createElement('a-curve-point');
-      point2.setAttribute('position', `${pathValOne} ${pathValTwo} ${pathValOne}`);
-      track1.append(point2);
-      let point3 = document.createElement('a-curve-point');
-      point3.setAttribute('position', `${pathValTwo} ${pathValOne} ${pathValTwo}`);
-      track1.append(point3);
-      let point4 = document.createElement('a-curve-point');
-      point4.setAttribute('position', '0 0 0');
-      track1.append(point4);
-      circleElement.setAttribute(`alongpath`, `curve: .track${a}; dur: ${pathDuration}; loop: true`);
 
       // append element to main container
       objectContainer.appendChild(rotateContainer);
     }
-  }
 }
 
 // random num generator
