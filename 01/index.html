@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Example 1</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene fog="type: exponential; density: 0.15; color: #FFFFFF;">
+      <a-assets>
+        <img id="opera" crossorigin="anonymous" src="../images/tsitsernakaberd_2.jpg">
+        <img id="blur-image" src="https://cdn.glitch.com/daae73ed-1502-4527-b809-03c18d6fb3e5%2Fblur.png?1503612651214">
+        <a-mixin id="transition" dur="7000" direction="alternate" repeat="indefinite"></a-mixin>
+      </a-assets>
+      <a-animation attribute="fog.color"
+                 dur="7000"
+                 from="#fff"
+                 to="#10454A"
+                 repeat="indefinite"
+                 direction="alternate">
+      </a-animation>
+      <!-- 360-degree image. -->
+      <!-- <a-sky id="image-360" radius="20" src="#opera"></a-sky> -->
+      <!-- Camera + cursor. -->
+
+      <a-entity id="camera" camera look-controls wasd-controls position="0 1.6 0" >
+        <a-cursor id="cursor"></a-cursor>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
