@@ -141,7 +141,7 @@ s<!-- <!DOCTYPE html>
   </head>
   <body>
     <a-scene>
-        <a-sound src="src: url(music/aladinmusic.mp3)" autoplay="true" position="0 0 0"></a-sound>
+        <a-sound src="src: url(aladinmusic.mp3)" autoplay="true" position="0 0 0"></a-sound>
 
 
       
@@ -163,14 +163,24 @@ s<!-- <!DOCTYPE html>
             </a-assets> 
 
             <a-assets>
-              <a-assets-item id = "genieobj" src = "genie.obj" > </a-assets>
+              <a-assets-item id = "genimtl" src = "cloats.mtl" > </a-assets>
                   
               </a-assets> 
 
+            <a-assets>
+              <a-assets-item id = "genieobj" src = "GENIE 2.obj" > </a-assets>
+                  
+              </a-assets>
+              
               <a-assets>
+                <a-assets-item id = "genieobj2" src = "cloats.obj" > </a-assets>
+                    
+                </a-assets>
+
+              <!-- <a-assets>
                 <a-assets-item id = "geniemtl" src = "genie.mtl" > </a-assets>
                     
-                </a-assets> 
+                </a-assets>  -->
             <!-- <a-assets-item id = "jin" src = "genie/genie.obj" > </a-assets>
                 
             </a-assets> 
@@ -194,6 +204,7 @@ s<!-- <!DOCTYPE html>
         
         <a-assets>
         <img id="city" crossorigin="anonymous" src="images/grass.jpg">
+        <img id="genie" crossorigin="anonymous" src="images/geni.png">
         <img id="laamp" crossorigin="anonymous" src="lamp.png">       
         <img id="archpic" crossorigin="anonymous" src="arch/archpic.jpg">       
         <img id="carpet" crossorigin="arch" src="images/texture.jpg">                
@@ -222,7 +233,7 @@ s<!-- <!DOCTYPE html>
       
 
       <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#city"
+      <a-sky id="image-360" radius="70" src="#city" rotation="0 180 0"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
@@ -230,14 +241,28 @@ s<!-- <!DOCTYPE html>
       <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
         <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
         <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
       </a-entity>
       
       <a-entity obj-model="obj: #arch;"rotation = "0 180 0" scale="1 1 1" position="0 0 -0.4"material = "color:white;src:#archpic;"></a-entity>
       <a-entity obj-model="obj: #carp;"scale="0.7 0.7 0.7" position="0 -0.05 1.7"material = "color:white;src:#carpet;"></a-entity>
       <a-entity obj-model="obj: #aladdin; mtl: #tree-mtl"rotation = "0 210 0" scale="0.015 0.015 0.015" position="2 0 3.5" ></a-entity>
-      <a-entity obj-model="obj: #lamp;"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3,5" material = "color:white;src:#laamp;"></a-entity>
-      <a-entity obj-model="obj: #genieobj; mtl: #geniemtl"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3,5"></a-entity>
+      <a-entity obj-model="obj: #lamp;"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3,5" material = "color:white;src:#laamp;"
+      event-set__mouseenter="scale: 1.2 1.2 1"
+            event-set__mouseleave="scale: 1 1 1"
+            event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+            proxy-event="event: click; to: #image-360; as: fade"
+            sound="on: click; src: #click-sound"></a-entity>></a-entity>
+      <!-- <a-entity obj-model="obj: #genieobj;"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"material = "color:white;src:#genie;"></a-entity> -->
+      <a-entity obj-model="obj: #genieobj;"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4" material = "color:blue;"></a-entity>
+      <a-entity obj-model="obj: #genieobj2; mtl: #geniemtl"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"></a-entity>
+      
+      <a-entity  text="color: white; align: center; font: aileronsemibold;
+      value: Welcome to " scale="3 3 3" rotation = "0 -90 0" position="4 1.6 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
+></a-entity>
+<a-entity text="color: white; align: center; font: aileronsemibold; value: 2800th park"scale="7 7 7" rotation = "0 -90 0" position="4 1.4 0"></a-entity>
+<a-entity text="color: white; align: center; font: aileronsemibold;
+      value: A VR EXPERIENCE " scale="3 3 3" position="4 1.1 0" rotation = "0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
+></a-entity> 
 
       <!-- Camera + cursor. -->
       <!-- <a-entity id="camera" camera look-controls> -->  
@@ -248,14 +273,14 @@ s<!-- <!DOCTYPE html>
           event-set__mouseenter="_event: mouseenter; color: springgreen"
           event-set__mouseleave="_event: mouseleave; color: black"
           raycaster="objects: .link"></a-cursor> -->
+          <a-entity rotation="0 180 0">
           <a-camera>
             <a-cursor
                 fuse='true'
                 fuse-timeout='1000'
             ></a-cursor>
           </a-camera>
-
-      </a-entity>
+        </a-entity>
     </a-scene>
   </body>
 </html>
