@@ -10,8 +10,17 @@
   <a-scene>
     <a-assets>
       <img id="skyTexture" src="../images/dark-sky.jpg" crossorigin="anonymous">
+      <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
+      <a-mixin id="toggleVisible" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
+      <a-mixin id="scaleUpDown" animation="property: scale; to: 1.1 1.1 0; loop: true; dur: 500; dir:alternate"></a-mixin>
+      <img id="rectangle" src="../images/rectangle-glow.png">
     </a-assets>
     <a-sky src="#skyTexture" theta-length="90" radius="30"></a-sky>
+
+    <a-entity id="rect-1" position="0 1.8 -3">
+            <a-image mixin="image scaleUpDown" src="#rectangle"  animation="delay: 200; easing:easeInOutSine"></a-image>
+        </a-entity>
+
     <a-camera>
       <a-entity cursor="downEvents: triggerdown; upEvents: triggerUp"
                 geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.05"
