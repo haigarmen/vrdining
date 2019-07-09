@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hello, WebVR! - A-Frame</title>
-    <meta name="description" content="Hello, WebVR! - A-Frame">
+<head>
+    <title>EX07: Scene Switching</title>
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene fog="type: exponential; density: 0.05; color: #fff;">
-      <a-assets>
-        <img id="blur-image" src="https://cdn.glitch.com/daae73ed-1502-4527-b809-03c18d6fb3e5%2Fblur.png?1503612651214">
-        <a-mixin id="toggleAnimation" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
-      </a-assets>
-      <a-sky color="#ECECEC"></a-sky>
-      <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="100" height="100" color="#111" material="roughness: 1;"></a-plane>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <!-- <script src="components/template-looper.js"></script> -->
+</head>
+<body>
+  <a-scene>
+    <a-assets>
+      <img id="skyTexture" src="../images/dark-sky.jpg" crossorigin="anonymous">
+    </a-assets>
+    <a-sky src="#skyTexture" theta-length="90" radius="30"></a-sky>
+    <a-camera>
+      <a-entity cursor="downEvents: triggerdown; upEvents: triggerUp"
+                geometry="primitive: ring; radiusInner: 0.03; radiusOuter: 0.05"
+                material="color: blue; shader: flat"
+                position="0 0 -1">
+      </a-entity>
+    </a-camera>
+    <a-entity id="ground"
+              geometry="primitive: cylinder; radius: 30; height: 0.1"
+              position="0 0 0"
+              material="shader: flat; color: #424949">
+    </a-entity>
+  </a-scene>
+</body>
 
-      <a-obj-model position="2 2 -5" rotation="0 180 0" src="#street-lamp-obj" mtl="#street-lamp-mtl"></a-obj-model>
-      <a-image position="1.4 3.6 -5" rotation="-90 0 0" scale="0.6 0.6 0.6" src="#blur-image"></a-image>
-      <a-light position="1.4 3.6 -5" type="point" intensity="1.5" color="#00E6FF"></a-light>
-      <a-light type="ambient" intensity=".9" color="#00E6FF"></a-light>
-    </a-scene>
-  </body>
 </html>
