@@ -35,12 +35,7 @@
         <!-- <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
         <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
         <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
-        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-        <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"> -->
-        <!-- <img id="cubes" crossorigin="anonymous" src="https://images-na.ssl-images-amazon.com/images/I/31rkBVA9TGL._SY450_.jpg"> -->
-        <a-asset-item id="table" src="img/coffeetable_02.obj"></a-asset-item>
-        <a-entity obj-model="obj: #table;" scale="100 100 100" position="0 0 0"></a-entity>
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>-->
         <script id="link" type="text/html">
           <a-entity class="link"
             geometry="primitive: plane; height: 3; width: 6"
@@ -53,38 +48,46 @@
         </script>
       </a-assets>
 
-      <a-obj-model src="#table"></a-obj-model>
+
+      <a-assets>
+        <a-asset-item id="crate-obj" src="stickman/stickman.obj"></a-asset-item>
+        <!-- <a-asset-item id="table" src="img/coffeetable_02.obj"></a-asset-item> -->
+        <a-asset-item id="dessert" src="Dessert_pie/11547_Dessert_pie_v3_l2.obj"></a-asset-item>
+        <a-asset-item id="dessert" src="Dessert_pie/11547_Dessert_pie_v3_l2.obj"></a-asset-item>
+        <a-asset-item id="pepperoni" src="Pepperoni/13917_Pepperoni_v2_l2.obj"></a-asset-item>
+        <a-asset-item id="table" src="img/simple_table.obj"></a-asset-item>
+        <!-- <img id="my-texture" src="Dessert_pie/11547_dessert_pie_diff.jpg"> -->
+        <!-- <a-asset-item id="table" src="img/coffeetable_02.obj"></a-asset-item>
+        <a-asset-item id="table" src="img/coffeetable_02.obj"></a-asset-item> -->
+        <!-- <a-asset-item id="crate-mtl" src="crate.mtl"></a-asset-item> -->
+      </a-assets>
+
+
+      <a-obj-model src="#crate-obj" scale="0.09 0.09 0.09" position="6.549 -4.740 -2.268" rotation="0 -45 0"></a-obj-model>
+      <a-obj-model src="#crate-obj" scale="0.09 0.09 0.09" position="3.174 -2.706 -4.470" rotation="0 90 0"></a-obj-model>
+      <a-obj-model src="#crate-obj" scale="0.09 0.09 0.09" position="3.803 -6.030 5.688" rotation="0 135 0"></a-obj-model>
+      <a-obj-model src="#dessert" scale="0.05 0.05 0.05" position="-2.853 -3.968 -0.821" rotation="-90 0 0" material="src: url(Dessert_pie/11547_dessert_pie_diff.jpg)"></a-obj-model>
+      <a-obj-model src="#pepperoni" scale="0.05 0.05 0.05" position="-2.853 -3.969 -2.041" rotation="-90 0 0" material="src: url(Pepperoni/13917_Pepperoni_diffuse.jpg)"></a-obj-model>
+      <a-obj-model src="#sandwich" scale="0.05 0.05 0.05" position="-2.853 -6.811 5.688" rotation="-90 0 0" material="src: url(Sandwich_on_Plate/13931_Reuben_Sandwich_on_Plate_sandwich_diff.jpg)"></a-obj-model>
+      <a-obj-model src="#table" scale="1.5 1.5 1.5" position="-2.853 -7.044 -1.617" rotation="0 90 0" material="color: #573904;"></a-obj-model>
+
+      <!-- <a-obj-model src="#table"></a-obj-model> -->
 
       <a-sky id="image-360" radius="10" src="#city"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
 
-      <a-entity id="links" layout="type: line; margin: 1.5" position="9 0 0" rotation="0 -90 0" material="shader: flat">
-        <a-image src="#board" width="6" height="3"></a-image> 
-        <!-- <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
-        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity> -->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="9 0 0" rotation="0 -90 0" material="color: red;">
+        <a-image src="#board" width="6" height="3"></a-image>
       </a-entity>
-      <!-- <a-entity geometry="primitive: box" material="color: red" position="0 0 0"></a-entity> -->
-
-      <!-- <a-entity id="rig"  position="1 -6 1" rotation="0 45 0">
-        <a-entity id="camera" camera="active: true" look-controls wasd-controls></a-entity>
-      </a-entity> -->
-      
-      <a-entity id="camera" camera look-controls>
+          
+      <a-camera>
         <a-cursor
-          id="cursor"
-          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-          event-set__mouseenter="_event: mouseenter; color: springgreen"
-          event-set__mouseleave="_event: mouseleave; color: black"
-          raycaster="objects: .link"></a-cursor>
-      </a-entity>
-
-      <!-- <a-assets>
-        <a-asset-item id="cityModel" src="img/coffeetable_02.obj"></a-asset-item>
-      </a-assets>
-      <a-obj-model src="#cityModel" mtl="#crate-mtl"></a-obj-model> -->
+            fuse='true'
+            fuse-timeout='1000'
+        ></a-cursor>
+      </a-camera>
     </a-scene>
   </body>
 </html>
