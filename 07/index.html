@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene fog="type: exponential; density: 0.05; color: #fff;">
+      <a-assets>
+        <img id="blur-image" src="https://cdn.glitch.com/daae73ed-1502-4527-b809-03c18d6fb3e5%2Fblur.png?1503612651214">
+        <a-mixin id="toggleAnimation" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
+      </a-assets>
+      <a-sky color="#ECECEC"></a-sky>
+      <a-plane id="ground" position="0 0 0" rotation="-90 0 0" width="100" height="100" color="#111" material="roughness: 1;"></a-plane>
+
+      <a-obj-model position="2 2 -5" rotation="0 180 0" src="#street-lamp-obj" mtl="#street-lamp-mtl"></a-obj-model>
+      <a-image position="1.4 3.6 -5" rotation="-90 0 0" scale="0.6 0.6 0.6" src="#blur-image"></a-image>
+      <a-light position="1.4 3.6 -5" type="point" intensity="1.5" color="#00E6FF"></a-light>
+      <a-light type="ambient" intensity=".9" color="#00E6FF"></a-light>
+    </a-scene>
+  </body>
+</html>

@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>360&deg; Image Gallery</title>
     <meta name="description" content="360&deg; Image Gallery - A-Frame">
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-  </head>
-  <body>
-      <a-scene>
-            <a-camera position="0 0 4"></a-camera>
-            <a-sky></a-sky>
-            <a-entity id="object-container" position="0 1.6 -2" scale=".4 .4 .4"></a-entity>
-            <a-light type="ambient" intensity="0.7" color="#ffffff"></a-light>
-            <a-light intensity="3" color="#00ffff" position="-5.72 6.65 0.80" animation__color="property:color; dir:alternate; dur:2000; easing:easeInOutSine; loop:true; to:#ff0000" alongpath="path:10,10,-10 -20,10,-10 10,0,-10; closed:true; dur:12000"></a-light>
-            <a-light intensity="5" color="#ff0000" position="8.60 6.65 0.80" animation__color="property:color; dir:alternate; dur:2000; easing:easeInOutSine; loop:true; to:#0000ff" alongpath="path:-2,-2,5 2,-1,5 0,-1,5; closed:true; dur:3000;"></a-light>
-          </a-scene>
-        <script type="text/javascript" src="app-1.js"></script>
-  </body>
+</head>
+
+<body>
+    <a-scene>
+      <a-assets>
+        <img id="opera" crossorigin="anonymous" src="../images/opera.jpg">
+        <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
+        <a-mixin id="toggleVisible" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
+        <a-mixin id="moveUpDown" animation="property: position; to: 0 2 0; loop: true; dur: 1000; dir:alternate"></a-mixin>
+        <img id="ring1" src="../images/ring1.png">
+        <img id="schematic1" src="../images/schematic1.png">
+      </a-assets>
+
+      <a-entity id="schematic-1" position="0 0 -3">
+              <a-image mixin="image" src="#ring1" position="-2 0 0" scale="0.7 0.7 0.7" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-image>
+              <a-image mixin="image moveUpDown" src="#schematic1"  animation="delay: 200; easing:easeInOutSine"></a-image>
+          </a-entity>
+
+
+          <a-entity
+            geometry="primitive: box"
+            material="color: red"
+            position="2 0 -3"
+            animation__mouseenter="property: components.material.material.color; type: color; to: blue; startEvents: mouseenter; dur: 500";
+            animation__mouseleave="property: components.material.material.color; type: color; to: red; startEvents: mouseleave; dur: 500";></a-entity>
+      <!-- 360-degree image. -->
+      <a-sky id="image-360" radius="10" src="#opera"></a-sky>
+      <!-- Camera + cursor. -->
+      <a-entity id="camera" camera look-controls wasd-controls>
+        <a-cursor id="cursor"></a-cursor>
+      </a-entity>
+    </a-scene>
+</body>
+
 </html>
