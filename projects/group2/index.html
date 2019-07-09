@@ -1,0 +1,261 @@
+s<!-- <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hello, WebVR! • A-Frame</title>
+  <meta name="description" content="Hello, WebVR! • A-Frame">
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-layout-component@3.x.x/dist/aframe-layout-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@3.x.x/dist/aframe-event-set-component.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <audio id="click-sound" src="shoot.ogg"></audio>
+
+      
+      <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+      <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+      <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+      <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
+      <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+      <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+
+      
+      <script id="link" type="text/html">
+        <a-entity class="link"
+          geometry="primitive: plane; height: 1; width: 1"
+          material="shader: flat; src: ${thumb}"
+          sound="on: click; src: #click-sound"
+          event-set__mouseenter="scale: 1.2 1.2 1"
+          event-set__mouseleave="scale: 1 1 1"
+          event-set__click="_target: #360-image; _delay: 300; material.src: ${src}"></a-entity>
+      </script>
+    </a-assets>
+
+    
+    <a-sky id="image-360" radius="10" src="#city"></a-sky>
+
+   
+    <a-entity id="links" layout="layout: line; margin: 1.5" position="-3 -1 -4">
+      <a-entity template="src: #plane" data-thumb="#city-thumb"></a-entity>
+      <a-entity template="src: #plane" data-thumb="#cubes-thumb"></a-entity>
+      <a-entity template="src: #plane" data-thumb="#sechelt-thumb"></a-entity>
+    </a-entity>
+    
+
+
+    
+    <a-camera>
+      <a-cursor id="cursor" animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
+        animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click" animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
+    </a-camera>
+  </a-scene>
+
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Hello, WebVR! • A-Frame</title>
+  <meta name="description" content="Hello, WebVR! • A-Frame">
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-layout-component@3.x.x/dist/aframe-layout-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@3.x.x/dist/aframe-event-set-component.min.js"></script>
+</head>
+
+<body>
+  <a-scene>
+    <a-assets>
+      <audio id="click-sound" src="shoot2.ogg"></audio>
+
+      
+      <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+      <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+      <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+      <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
+      <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+      <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+
+      <script id="plane" type="text/html">
+        <a-entity class="link"
+          geometry="primitive: plane; height: 1; width: 1"
+          material="shader: flat; src: #cubes-thumb"
+          sound="on: click; src: #click-sound"></a-entity>
+      </script>
+     
+    </a-assets>
+
+    
+    <a-sky id="image-360" radius="10" src="#city"></a-sky>
+
+   
+    <a-entity id="links" layout="layout: line; margin: 1.5" position="-3 -1 -4">
+      <a-entity template="src: #plane" data-thumb="#city-thumb"></a-entity>
+      <a-entity template="src: #plane" data-thumb="#cubes-thumb"></a-entity>
+      <a-entity template="src: #plane" data-thumb="#sechelt-thumb"></a-entity>
+    </a-entity>
+
+
+
+
+    
+    <a-camera>
+      <a-cursor id="cursor" animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
+        animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click" animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
+    </a-camera>
+  </a-scene>
+
+</body>
+
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360° Image Gallery</title>
+    <meta name="description" content="360° Image Gallery - A-Frame">
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+        <a-sound src="src: url(music/aladinmusic.mp3)" autoplay="true" position="0 0 0"></a-sound>
+
+
+      
+            <!-- <a-assets-item id = "aladdin" src = "pic/Aladdin.obj" > </a-assets>
+              
+            </a-assets>  -->
+      <a-assets>
+        <!-- <a-assets-item id = "object" src = "arch.obj" > </a-assets> -->
+        <a-assets-item id = "carp" src = "magiccarpet.obj" > 
+        
+        </a-assets>
+        <a-assets>
+            <a-assets-item id = "aladdin" src = "Aladdin/newAladdin.obj" > </a-assets>
+                
+            </a-assets> 
+            <a-assets>
+            <a-assets-item id = "tree-mtl" src = "Aladdin/newAladdin.mtl" > </a-assets>
+                
+            </a-assets> 
+
+            <a-assets>
+              <a-assets-item id = "genieobj" src = "genie.obj" > </a-assets>
+                  
+              </a-assets> 
+
+              <a-assets>
+                <a-assets-item id = "geniemtl" src = "genie.mtl" > </a-assets>
+                    
+                </a-assets> 
+            <!-- <a-assets-item id = "jin" src = "genie/genie.obj" > </a-assets>
+                
+            </a-assets> 
+            <a-assets>
+                <a-assets-item id = "jinn" src = "genie/genie.mtl" > </a-assets>
+                  
+                </a-assets>  -->
+            <a-assets>
+                <a-assets-item id = "lamp" src = "lamp.obj" > </a-assets>
+                    
+                </a-assets> 
+        <a-assets>
+            <a-assets-item id = "arch" src = "arch/Arch.obj" > </a-assets>
+              
+            </a-assets> 
+          
+             
+              
+                
+       
+        
+        <a-assets>
+        <img id="city" crossorigin="anonymous" src="images/grass.jpg">
+        <img id="laamp" crossorigin="anonymous" src="lamp.png">       
+        <img id="archpic" crossorigin="anonymous" src="arch/archpic.jpg">       
+        <img id="carpet" crossorigin="arch" src="images/texture.jpg">                
+        <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+        <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
+        <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        <img id="cubes" crossorigin="anonymous" src="photo.jpg">
+        <img id="sechelt" crossorigin="anonymous" src="car.jpg">
+
+        <!-- Image link template to be reused. -->
+        <script id="link" type="text/html">
+          <a-entity class="link"
+            geometry="primitive: plane; height: 1; width: 1"
+            material="shader: flat; src: ${thumb}"
+            event-set__mouseenter="scale: 1.2 1.2 1"
+            event-set__mouseleave="scale: 1 1 1"
+            event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+            proxy-event="event: click; to: #image-360; as: fade"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>
+      </a-assets>
+
+      
+  
+      
+
+      <!-- 360-degree image. -->
+      <a-sky id="image-360" radius="10" src="#city"
+             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+
+      <!-- Image links. -->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+        <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb"></a-entity>
+      </a-entity>
+      
+      <a-entity obj-model="obj: #arch;"rotation = "0 180 0" scale="1 1 1" position="0 0 -0.4"material = "color:white;src:#archpic;"></a-entity>
+      <a-entity obj-model="obj: #carp;"scale="0.7 0.7 0.7" position="0 -0.05 1.7"material = "color:white;src:#carpet;"></a-entity>
+      <a-entity obj-model="obj: #aladdin; mtl: #tree-mtl"rotation = "0 210 0" scale="0.015 0.015 0.015" position="2 0 3.5" ></a-entity>
+      <a-entity obj-model="obj: #lamp;"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3,5" material = "color:white;src:#laamp;"></a-entity>
+      <a-entity obj-model="obj: #genieobj; mtl: #geniemtl"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3,5"></a-entity>
+
+      <!-- Camera + cursor. -->
+      <!-- <a-entity id="camera" camera look-controls> -->  
+        <!-- <a-cursor
+          id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__mouseenter="_event: mouseenter; color: springgreen"
+          event-set__mouseleave="_event: mouseleave; color: black"
+          raycaster="objects: .link"></a-cursor> -->
+          <a-camera>
+            <a-cursor
+                fuse='true'
+                fuse-timeout='1000'
+            ></a-cursor>
+          </a-camera>
+
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
