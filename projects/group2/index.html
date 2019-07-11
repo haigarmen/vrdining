@@ -158,7 +158,7 @@ s<!-- <!DOCTYPE html>
       recognizer.onresult = function (event) {
         var result = event.results[event.resultIndex];
         if (result.isFinal) {
-          if((result[0].transcript=="Jenny"||result[0].transcript=="Genie"||result[0].transcript=="okay Genie"))
+          if((result[0].transcript=="Jenny"||result[0].transcript=="Genie"||result[0].transcript=="okay Genie" ||result[0].transcript=="Nancy"))
           {
           genie = true;
           var sceneEl = document.getElementById("MyScene");
@@ -233,8 +233,8 @@ s<!-- <!DOCTYPE html>
     <a-scene id="MyScene">
 
         <a-assets>
-            <img id="tsitsernakaberd" crossorigin="anonymous" src="imagesgrass.jpg">
-            <audio id="music-loop" src="aladinmusic.mp3" preload="auto"></audio>
+            <img id="tsitsernakaberd" crossorigin="anonymous" src="https://i.imgur.com/Kto7YK9.jpg">
+            <audio id="music-loop" src="../loops/tsitsernakaberd-loop.mp3" preload="auto"></audio>
             <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
             <!-- <a-mixin id="fade" animation="property: opacity; dur: 1000; to: 0; startEvents: fade"></a-mixin> -->
             <a-mixin id="toggleVisible" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
@@ -246,17 +246,18 @@ s<!-- <!DOCTYPE html>
             <a-mixin id="rolloverButton2" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow2, .buttonText2; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow2, .buttonText2; as: fadeOut;"></a-mixin>
             <a-mixin id="rolloverAnims2" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
 
-            <img id="ring1" src="lamp.png">
-            <img id="glow1" src="lamp.png">
+            <img id="ring1" src="../../images/ring1.png">
+            
         </a-assets>
 
 <!-- portal 1 -->
-        <a-entity id="portal_1" position=".56 4 -8" rotation="24 0 0" scale>
+        <a-entity id="portal_1" position="-0.6 0 3,5" rotation="24 0 0" scale>
             <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton"></a-entity>
 
             <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".1"></a-image>
             <a-text mixin="rolloverAnims" class="buttonText" text="value: TUMO PARK; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
         </a-entity>
+
         <!-- <a-sound src="src: url(aladinmusic.mp3)" autoplay="true" position="0 0 0"></a-sound> -->
 
 
@@ -378,7 +379,7 @@ s<!-- <!DOCTYPE html>
       <a-entity obj-model="obj: #arch;"rotation = "0 180 0" scale="1 1 1" position="0 0 -0.4"material = "color:white;src:#archpic;"></a-entity>
       <a-entity obj-model="obj: #carp;"scale="0.7 0.7 0.7" position="0 -0.05 1.7"material = "color:white;src:#carpet;"></a-entity>
       <a-entity obj-model="obj: #aladdin; mtl: #tree-mtl"rotation = "0 210 0" scale="0.015 0.015 0.015" position="2 0 3.5" ></a-entity>
-      <a-entity obj-model="obj: #lamp;"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3,5" material = "color:white;src:#laamp;"
+      <a-entity obj-model="obj: #lamp;"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3,5" material = "color:white;src:#laamp;side: double;"
       event-set__mouseenter="scale: 0.5 0.5 0.5"
             event-set__mouseleave="scale: 0.4 0.4 0.4"
             event-set__click="_target: #city-thumb; _delay: 300; material.src: ${src}"
@@ -397,6 +398,12 @@ s<!-- <!DOCTYPE html>
 ></a-entity> 
 <a-entity text="color: white; align: center; font: aileronsemibold;
       value:Gnel Sedrakyan " scale="4 4 3" position="4 1.1 1.5" rotation = "0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
+></a-entity> 
+
+<a-entity text="color: white; align: center; font: aileronsemibold;
+      value: MENU
+            If you call Genie, he will appear
+            if you say music, Genie will start music " scale="8 8 8" position="-4.2 1.1 1.5" rotation = "0 90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
 ></a-entity> 
 
       <!-- Camera + cursor. -->
