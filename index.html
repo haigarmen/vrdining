@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-    <script src="js/template-changer.js"></script>
+    <!-- <script src="js/template-changer.js"></script> -->
 </head>
 
 <body>
@@ -25,6 +25,7 @@
 
             <!-- button mixins -->
             <a-mixin id="rolloverButton" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow, .buttonText; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow, .buttonText; as: fadeOut;"></a-mixin>
+
             <a-mixin id="rolloverAnims" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
 
             <a-mixin id="rolloverButton2" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow2, .buttonText2; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow2, .buttonText2; as: fadeOut;"></a-mixin>
@@ -39,39 +40,15 @@
             <a-mixin id="rolloverButton5" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow5, .buttonText5; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow5, .buttonText5; as: fadeOut;"></a-mixin>
             <a-mixin id="rolloverAnims5" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
 
-            <a-mixin id="rolloverButton6" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow6, .buttonText6; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow6, .buttonText6; as: fadeOut;"></a-mixin>
+            <a-mixin id="rolloverButton6" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow6, .buttonText6; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow6, .buttonText6; as: fadeOut;"
+            proxy-event__click=""></a-mixin>
             <a-mixin id="rolloverAnims6" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
 
             <img id="ring1" src="images/ring1.png">
-            <!-- Image link template to be reused. -->
-                 <script id="link" type="text/html">
-                   <a-entity class="link2"
-                     geometry="primitive: sphere; height: 1; width: 1"
-                     material="shader: flat; src: ${thumb}"
-                     event-set__mouseenter="scale: 1.2 1.2 1.2"
-                     event-set__mouseleave="scale: 1 1 1"
-                     event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
-                     proxy-event="event: click; to: #image-360; as: fade"
-                     sound="on: click; src: #click-sound"></a-entity>
-                 </script>
-
         </a-assets>
-        
-        <a-entity
-          id="links-src-group1"
-          template="src: scenes/links/tumopark.html"
-          position="0 0 0"
-        ></a-entity>
-
-        <a-entity
-            id="template-src-group1"
-            template="src: scenes/tumopark.html"
-            position="0 0 0"
-        ></a-entity>
-
 
 <!-- portal 1 -->
-        <a-entity id="portal_1" position=".56 4 -8" rotation="24 0 0" scale>
+        <a-entity id="portal_1" position=".56 4 -8" rotation="24 0 0">
             <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton"></a-entity>
 
             <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".1"></a-image>
@@ -135,13 +112,24 @@
 
         <!-- Camera + cursor. -->
         <a-camera>
-            <a-entity cursor="downEvents: triggerdown; upEvents: triggerUp" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: blue; shader: flat" position="0 0 -1">
+            <a-entity cursor="downEvents: triggerdown; upEvents: triggerUp" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: blue; shader: flat" position="0 0 -1" fuse="true" fuse-timeout="1500">
             </a-entity>
         </a-camera>
         <a-entity sound="src: #music-loop; loop:true; autoplay:true; "></a-entity>
         <a-entity vive-controls="hand: left"></a-entity>
         <a-entity vive-controls="hand: right"></a-entity>
     </a-scene>
+
+    <script type="text/javascript">
+        let ah = document.querySelector('#portal_1');
+
+        console.log(ah)
+
+        ah.addEventListener('click', (event) => {
+            console.log(1)
+            window.location.href = "/boom.html"
+        });
+    </script>
 </body>
 
 </html>
