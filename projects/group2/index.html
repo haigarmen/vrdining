@@ -251,7 +251,7 @@ s<!-- <!DOCTYPE html>
         </a-assets>
 
 <!-- portal 1 -->
-        <a-entity id="portal_1" position="-0.6 0 3,5" rotation="24 0 0" scale>
+        <a-entity id="portal_1" position="-0.6 0 3.3" rotation="0 180 0" scale>
             <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton"></a-entity>
 
             <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".1"></a-image>
@@ -379,7 +379,7 @@ s<!-- <!DOCTYPE html>
       <a-entity obj-model="obj: #arch;"rotation = "0 180 0" scale="1 1 1" position="0 0 -0.4"material = "color:white;src:#archpic;"></a-entity>
       <a-entity obj-model="obj: #carp;"scale="0.7 0.7 0.7" position="0 -0.05 1.7"material = "color:white;src:#carpet;"></a-entity>
       <a-entity obj-model="obj: #aladdin; mtl: #tree-mtl"rotation = "0 210 0" scale="0.015 0.015 0.015" position="2 0 3.5" ></a-entity>
-      <a-entity obj-model="obj: #lamp;"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3,5" material = "color:white;src:#laamp;side: double;"
+      <a-entity obj-model="obj: #lamp;"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3.5" material = "color:white;src:#laamp;side: double;"
       event-set__mouseenter="scale: 0.5 0.5 0.5"
             event-set__mouseleave="scale: 0.4 0.4 0.4"
             event-set__click="_target: #city-thumb; _delay: 300; material.src: ${src}"
@@ -403,7 +403,8 @@ s<!-- <!DOCTYPE html>
 <a-entity text="color: white; align: center; font: aileronsemibold;
       value: MENU
             If you call Genie, he will appear
-            if you say music, Genie will start music " scale="8 8 8" position="-4.2 1.1 1.5" rotation = "0 90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
+            if you say music, Genie will start music
+            If you touch lamp, you will go to the TUMO park " scale="8 8 8" position="-4.2 1.1 1.5" rotation = "0 90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
 ></a-entity> 
 
       <!-- Camera + cursor. -->
