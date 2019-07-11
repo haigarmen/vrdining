@@ -1,0 +1,29 @@
+<img id="tsitsernakaberd" crossorigin="anonymous" src="https://i.imgur.com/Kto7YK9.jpg">
+          
+          <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
+          <!-- <a-mixin id="fade" animation="property: opacity; dur: 1000; to: 0; startEvents: fade"></a-mixin> -->
+          <a-mixin id="toggleVisible" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
+
+          <!-- button mixins -->
+          <a-mixin id="rolloverButton" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow, .buttonText; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow, .buttonText; as: fadeOut;"></a-mixin>
+          <a-mixin id="rolloverAnims" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+
+          <a-mixin id="rolloverButton2" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow2, .buttonText2; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow2, .buttonText2; as: fadeOut;"></a-mixin>
+          <a-mixin id="rolloverAnims2" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+
+<img id="ring1" src="../../images/ring1.png">
+
+<a-entity id="portal_1" position="1.768 2.042 -2.713" rotation="0 0 0" link="href: ../../06-startgate/index.html">
+    <a-entity geometry="primitive: cylinder" material="side: double; color:black; opacity: .02" mixin="rolloverButton"></a-entity>
+
+    <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".1"></a-image>
+    <a-text mixin="rolloverAnims" class="buttonText" text="value: tsitsernakaberd; align: center; color:black" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
+</a-entity>
+
+<a-entity position="-1.521 3.682 -6.995" rotation="0 45 0">
+    <a-entity text="font: aileronsemibold; value: Welcome to ; color: black; align:center;" scale="5 5 5" position="-1.053 0.934 -1.002" geometry="primitive: plane; width: auto; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
+    <a-entity text="font: aileronsemibold; value: TUMO BRIDGE; color: black; align: center"  scale="10 10 10" position="-1.015 0.478 -1.002"></a-entity>
+    <a-entity text="font: aileronsemibold; value: Armen Grigoryan; color: black; align:center;" scale="5 5 5" position="-0.984 0 -1.002" geometry="primitive: plane; width: auto; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
+    <a-entity text="font: aileronsemibold; value: Susanna Atanessian; color: black; align:center;" scale="5 5 5" position="-0.984 -0.253 -1.002" geometry="primitive: plane; width: auto; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
+    <a-entity text="font: aileronsemibold; value: Berik Hambardzumyan; color: black; align:center;" scale="5 5 5" position="-0.984 -0.504 -1.002" geometry="primitive: plane; width: auto; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
+</a-entity>
