@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>360&deg; Image Gallery</title>
+  <meta name="description" content="360&deg; Image Gallery - A-Frame">
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+  <script src="template-changer.js"></script>
+</head>
+
+<body>
+
+  <a-scene>
+    <a-assets>
+        <audio id="music-loop" src="images/invisibility-loop.mp3" preload="auto"></audio>
+      <img id="cascade_1" crossorigin="anonymous" src="images/cascade_1.jpg">
+      <img id="city-thumb" crossorigin="anonymous" src="images/c1.jpg">
+      <img id="cubes-thumb" crossorigin="anonymous" src="images/c2.jpg">
+      <img id="sechelt-thumb" crossorigin="anonymous" src="images/c3.jpg">
+      <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+      <img id="cascade_2" crossorigin="anonymous" src="images/cascade_2.jpg">
+      <img id="cascade_3" crossorigin="anonymous" src="images/cascade_3.jpg">
+      <img id="cascade_1" crossorigin="anonymous" src="images/cascade_1.jpg">
+      <img id="texture1" crossorigin="anonymous" src="images/texture1.jpg">
+      <a-assets-item id="bench_06" src="images/bench_06.obj"> </a-assets-item>
+    </a-assets>
+    <a-assets-item id="l1" src="images/l1.obj"> </a-assets-item>
+
+    <audio id="music-loop" src="images/invisibility-loop.mp3" preload="auto"></audio>
+    <img id="cascade_3" crossorigin="anonymous" src="images/cascade_3.jpg">
+    <img id="t1" crossorigin="anonymous" src="images/t1.jpg">
+    <img id="f" crossorigin="anonymous" src="images/f.jpg">
+    <img id="qq" crossorigin="anonymous" src="images/qq.jpg">
+    <img id="ks" crossorigin="anonymous" src="images/k.jpg">
+    <img id="aa" crossorigin="anonymous" src="images/a.jpg">
+    <img id="asa" crossorigin="anonymous" src="images/as.jpg">
+    <img id="bb" crossorigin="anonymous" src="images/b.jpg">
+    <img id="c" crossorigin="anonymous" src="images/c.jpg">
+    <img id="piz" crossorigin="anonymous" src="images/piz.jpg">
+    <img id="wm" crossorigin="anonymous" src="images/wm.jpg">
+    <a-assets-item id="z" src="images/z.obj"> </a-assets-item>
+
+    <a-assets-item id="b" src="images/b.obj"> </a-assets-item>
+
+    <a-assets-item id="pj" src="images/pj.obj"> </a-assets-item>
+
+    <a-assets-item id="as" src="images/as.obj"> </a-assets-item>
+
+    <a-assets-item id="k" src="images/k.obj"> </a-assets-item>
+
+    <a-assets-item id="a" src="images/a.obj"> </a-assets-item>
+
+    <a-assets-item id="cf" src="images/cf.obj"> </a-assets-item>
+
+    <a-assets-item id="r" src="images/r.obj"> </a-assets-item>
+
+    <a-assets-item id="p" src="images/p.obj"> </a-assets-item>
+
+    <a-assets-item id="ccc" src="images/crisps.obj"> </a-assets-item>
+
+    <a-assets-item id="pizz" src="images/pizz.obj"> </a-assets-item>
+
+    <a-assets-item id="wmm" src="images/wmm.obj"> </a-assets-item>
+
+    <script id="link" type="text/html">
+      <a-entity class="link"
+        geometry="primitive: plane; height: 1; width: 1"
+        material="shader: flat; src: ${thumb}"
+        event-set__mouseenter="scale: 1.2 1.2 1"
+        event-set__mouseleave="scale: 1 1 1"
+        event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+        proxy-event="event: click; to: #image-360; as: fade"
+        sound="on: click; src: #click-sound"></a-entity>
+    </script>
+    </a-assets>
+
+    <a-entity
+      id="links-src-group4"
+      template="src: scenes/links/cascade1.html"
+      position="0 0 0"
+    ></a-entity>
+
+      <a-entity
+        id="template-src-group4"
+        template="src: scenes/cascade1.html"
+        position="0 0 0"
+      ></a-entity>
+    
+    <!-- 360-degree image. -->
+    <a-sky id="image-360" radius="20" src="#cascade_1" animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+      animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+ 
+    <!-- Camera + cursor. -->
+    <a-camera>
+      <a-cursor fuse='true' fuse-timeout='1000'></a-cursor>
+    </a-camera>
+    <a-entity sound="src: #music-loop; loop:true; autoplay:true; "></a-entity>
+
+  </a-scene>
+</body>
+
+</html>
