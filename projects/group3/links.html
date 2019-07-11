@@ -9,36 +9,62 @@
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-    <!-- <script>
-      AFRAME.registerComponent('modify-materials', {
-        init: function () {
-          // Wait for model to load.
-          this.el.addEventListener('model-loaded', () => {
-            // Grab the mesh / scene.
-            const obj = this.el.getObject3D('mesh');
-            // Go over the submeshes and modify materials we want.
-            obj.traverse(node => {
-              if (node.name.indexOf('ship') !== -1) {
-                node.material.color.set('red');
-              }
-            });
-          });
-        }
-      });
-    </script> -->
   </head>
   <body>
     <a-scene>
       <a-assets>
-        <img id="city" crossorigin="anonymous" src="brainstorm-room.jpg">
-        <img id="board" crossorigin="anonymous" src="img/1024px-Whiteboard_with_markers.jpg">
-        <!-- <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-        <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-        <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
-        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>-->
-        <script id="link" type="text/html">
+      	<img id="city" crossorigin="anonymous" src="brainstorm-room.jpg">
+            <audio id="music-loop" src="flow-loop.mp3" preload="auto"></audio>
+            <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
+
+            <a-mixin id="toggleVisible" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
+
+
+            <a-mixin id="rolloverButton" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow, .buttonText; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow, .buttonText; as: fadeOut;"></a-mixin>
+            <a-mixin id="rolloverAnims" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+
+            <a-mixin id="rolloverButton2" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow2, .buttonText2; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow2, .buttonText2; as: fadeOut;"></a-mixin>
+            <a-mixin id="rolloverAnims2" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+
+            <img id="ring1" src="../images/ring1.png">
+            <img id="glow1" src="../images/glow1.png">
+
+
+         
+        <img id="board" crossorigin="anonymous" src="1024px-Whiteboard_with_markers.jpg">
+
+        
+
+         <a-asset-item id="table" src="simple_table.obj"></a-asset-item>
+
+         <!-- <a-asset-item id="man" src="14606_monitor_guySitting_V1.obj"></a-asset-item>
+
+         <a-asset-item id="man2" src="14606_monitor_guySitting_V1.obj"></a-asset-item>
+
+         <a-asset-item id="running" src="11083_Man_Running_v2.obj"></a-asset-item> -->
+
+         <a-asset-item id="crate-obj" src="stickman.obj"></a-asset-item>
+
+         <a-asset-item id="crate-obj2" src="stickman.obj"></a-asset-item>
+
+         <a-asset-item id="crate-obj3" src="stickman.obj"></a-asset-item>
+
+         <a-asset-item id="crate-obj4" src="stickman.obj"></a-asset-item>
+
+         <a-asset-item id="candt" src="objCandtBowl.obj"></a-asset-item>
+
+         <a-asset-item id="candtmtl" src="objCandtBowl.mtl"></a-asset-item>
+
+         <a-asset-item id="apple" src="apple.obj"></a-asset-item>
+
+         <a-asset-item id="dessert" src="cupcakes.obj"></a-asset-item>
+
+         <a-asset-item id="dessertmtl" src="cupcakes.mtl"></a-asset-item>
+
+
+       <script id="link" type="text/html">
           <a-entity class="link"
-            geometry="primitive: plane; height: 3; width: 6"
+            geometry="primitive: plane; height: 2; width: 2"
             material="shader: flat; src: ${thumb}"
             event-set__mouseenter="scale: 1.2 1.2 1"
             event-set__mouseleave="scale: 1 1 1"
@@ -46,48 +72,85 @@
             proxy-event="event: click; to: #image-360; as: fade"
             sound="on: click; src: #click-sound"></a-entity>
         </script>
-      </a-assets>
+      </a-assets>  
+
+      <a-entity id="portal_1" position="7.768 0.010 -4.841" rotation="0 -90 0" >
+            <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton" ></a-entity>
+
+            <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".1" scale="0.800 2.190 1.000"></a-image>
+            <a-text mixin="rolloverAnims" class="buttonText" text="value: TUMO PARK; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
+        </a-entity>
+
+        <a-entity id="portal_2" position="-5.461 -0.365 -7.326" rotation="0 0 0" >
+            <a-entity geometry="primitive: cylinder" material="side: double; color: black; opacity: .02" mixin="rolloverButton2" ></a-entity>
+
+            <a-image mixin="image rolloverAnims" class="buttonGlow2" src="#ring1" position="0 0 0" opacity=".1" scale="0.800 2.190 1.000"></a-image>
+            <a-text mixin="rolloverAnims" class="buttonText2" text="value: TUMO LINK 2; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
+        </a-entity>
 
 
-      <a-assets>
-        <a-asset-item id="crate-obj" src="stickman/stickman.obj"></a-asset-item>
-        <!-- <a-asset-item id="table" src="img/coffeetable_02.obj"></a-asset-item> -->
-        <a-asset-item id="dessert" src="Dessert_pie/11547_Dessert_pie_v3_l2.obj"></a-asset-item>
-        <a-asset-item id="dessert" src="Dessert_pie/11547_Dessert_pie_v3_l2.obj"></a-asset-item>
-        <a-asset-item id="pepperoni" src="Pepperoni/13917_Pepperoni_v2_l2.obj"></a-asset-item>
-        <a-asset-item id="table" src="img/simple_table.obj"></a-asset-item>
-        <!-- <img id="my-texture" src="Dessert_pie/11547_dessert_pie_diff.jpg"> -->
-        <!-- <a-asset-item id="table" src="img/coffeetable_02.obj"></a-asset-item>
-        <a-asset-item id="table" src="img/coffeetable_02.obj"></a-asset-item> -->
-        <!-- <a-asset-item id="crate-mtl" src="crate.mtl"></a-asset-item> -->
-      </a-assets>
+		<a-entity  rotation="0 0 0" position="0 2.140 -8.6" scale="1.3 1.3 0">
+		<a-entity text="color: white; align: center; font: aileronsemibold;
+              value: Welcome to " scale="4 4 4" position="0 1.6 -2" geometry="primitive: plane; width: auto; height: auto" material="transparent: true; opacity: 0.25"
+        ></a-entity>
+        <a-entity text="color: white; align: center; font: aileronsemibold; value: BRAINSTORM ROOM" scale="7 7 7" position="0 1.4 -2"></a-entity>
+        <a-entity text="color: white; align: center; font: aileronsemibold;
+              value: A VR EXPERIENCE " scale="4 4 4" position="0 1.1 -2" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
+        </a-entity>
+</a-entity>
 
+    <a-obj-model src="#table" scale="0.8 0.8 0.8" position="0 -1.5 -2" rotation="0 0 0"></a-obj-model>
 
-      <a-obj-model src="#crate-obj" scale="0.09 0.09 0.09" position="6.549 -4.740 -2.268" rotation="0 -45 0"></a-obj-model>
-      <a-obj-model src="#crate-obj" scale="0.09 0.09 0.09" position="3.174 -2.706 -4.470" rotation="0 90 0"></a-obj-model>
-      <a-obj-model src="#crate-obj" scale="0.09 0.09 0.09" position="3.803 -6.030 5.688" rotation="0 135 0"></a-obj-model>
-      <a-obj-model src="#dessert" scale="0.05 0.05 0.05" position="-2.853 -3.968 -0.821" rotation="-90 0 0" material="src: url(Dessert_pie/11547_dessert_pie_diff.jpg)"></a-obj-model>
-      <a-obj-model src="#pepperoni" scale="0.05 0.05 0.05" position="-2.853 -3.969 -2.041" rotation="-90 0 0" material="src: url(Pepperoni/13917_Pepperoni_diffuse.jpg)"></a-obj-model>
-      <a-obj-model src="#sandwich" scale="0.05 0.05 0.05" position="-2.853 -6.811 5.688" rotation="-90 0 0" material="src: url(Sandwich_on_Plate/13931_Reuben_Sandwich_on_Plate_sandwich_diff.jpg)"></a-obj-model>
-      <a-obj-model src="#table" scale="1.5 1.5 1.5" position="-2.853 -7.044 -1.617" rotation="0 90 0" material="color: #573904;"></a-obj-model>
+    <!-- <a-obj-model src="#man" scale="0.8 0.8 0.8" position="2.420 -3.140 -2.140" rotation="-90 0 -90"></a-obj-model>
 
-      <!-- <a-obj-model src="#table"></a-obj-model> -->
+    <a-obj-model src="#man2" scale="0.8 0.8 0.8" position="-3.380 -3.450 -2.240" rotation="-90 180 -90"></a-obj-model>
 
-      <a-sky id="image-360" radius="10" src="#city"
+    <a-obj-model src="#running" scale="0.02 0.02 0.02" position="5.4 -0.1 -0.18" rotation="-90 -75 -90"></a-obj-model> -->
+
+    <a-obj-model src="#crate-obj" scale="0.05 0.05 0.05" position="-1.365 -0.902 -6.394" rotation="-180.000 180  -180.000"></a-obj-model>
+
+    <a-obj-model src="#crate-obj2" scale="0.05 0.05 0.05" position="6.153 -0.646 -3.808" rotation="-180.000 140  -180.000"></a-obj-model>
+
+    <a-obj-model src="#crate-obj3" scale="0.05 0.05 0.05" position="8.634 -0.890 -1.333" rotation="-180.000 70  -180.000"></a-obj-model>
+
+    <a-obj-model src="#crate-obj4" scale="0.05 0.05 0.05" position="-4.269  -0.824 -5.418" rotation="-180.000 210  -180.000"></a-obj-model>
+
+    <a-obj-model src="#candt" scale="0.05 0.05 0.05" position="-0.700 0.100 -2.310" rotation="0 0 0" material="src: Candy/textures/regalo4.jpg"></a-obj-model>
+
+    <a-obj-model src="#apple" scale="0.010 0.010 0.010" position="0.650 0.100 -2.310" rotation="0 0 0" material="src: xndzor/textura/fin.jpg"></a-obj-model>
+
+    <a-entity obj-model = "obj: #dessert; mtl: #dessertmtl"  scale="3 3 3" position="0 -1.550 -3.910" rotation="0 0 0"></a-entity>
+
+<a-entity
+            scale="5.810 2.650 0.010"
+            geometry="primitive: box"
+            material="color: white"
+            position="0.040 0.230 -9.390"
+            animation__mouseenter="property: components.material.material.color; type: color; to: black; startEvents: mouseenter; dur: 500";
+            animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500";></a-entity>
+
+       <a-sky id="image-360" radius="10" src="#city" rotation="0 90 0" 
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky> 
 
 
-      <a-entity id="links" layout="type: line; margin: 1.5" position="9 0 0" rotation="0 -90 0" material="color: red;">
-        <a-image src="#board" width="6" height="3"></a-image>
-      </a-entity>
-          
+        <a-image src="#board" width="6" height="3" position="0 0.12 -9.39"></a-image>
+
+        
+
       <a-camera>
-        <a-cursor
-            fuse='true'
-            fuse-timeout='1000'
-        ></a-cursor>
-      </a-camera>
+               <a-cursor
+                   fuse='true'
+                   fuse-timeout='1000'
+               ></a-cursor>
+             </a-camera>
+
+      <a-entity sound="src: #music-loop; loop:true; autoplay:true; "></a-entity>
+      
     </a-scene>
   </body>
-</html>
+</html> 
+
+
+
+
