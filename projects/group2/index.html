@@ -140,8 +140,124 @@ s<!-- <!DOCTYPE html>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
   </head>
   <body>
-    <a-scene>
-        <a-sound src="src: url(aladinmusic.mp3)" autoplay="true" position="0 0 0"></a-sound>
+    <script>
+      //recognizer{
+        var recognizer = new webkitSpeechRecognition();
+        var body = document.querySelector('body');
+        var genie = false;
+        var Music;
+        
+
+      // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
+      recognizer.interimResults = true;
+
+      // Какой язык будем распознавать?
+      recognizer.lang = 'en-En';
+
+      // Используем колбек для обработки результатов
+      recognizer.onresult = function (event) {
+        var result = event.results[event.resultIndex];
+        if (result.isFinal) {
+          if((result[0].transcript=="Jenny"||result[0].transcript=="Genie"||result[0].transcript=="okay Genie"))
+          {
+          genie = true;
+          var sceneEl = document.getElementById("MyScene");
+          var kube = document.createElement("a-entity");
+          kube.setAttribute('position', {x:-1.7, y:-1, z:4});
+          kube.setAttribute('rotation', {x:0, y:-210, z:0});
+          kube.setAttribute('scale', {x:0.4, y:0.4, z:0.4});
+          kube.setAttribute('obj-model', {obj: "#genieobj", mtl: "#geniemtl"});
+          sceneEl.appendChild(kube);
+          console.log(kube);
+          }
+          if(genie){
+          //anjatel
+          if(result[0].transcript=="End music"||result[0].transcript=="turn off music"||result[0].transcript=="turn off"||result[0].transcript=="turn up"||result[0].transcript=="stop music"||result[0].transcript=="pause music")
+          {
+          var sceneEl = document.getElementById("MyScene");
+          if(Music)
+          {
+            sceneEl.removeChild(Music);
+            Music = null;
+          }
+          }
+          //miacnel erg
+          else if(result[0].transcript=="music"||result[0].transcript=="play music"||result[0].transcript=="turn on music")
+          {
+          var sceneEl = document.getElementById("MyScene");
+          if(Music)
+          {
+            sceneEl.removeChild(Music);
+          }
+          Music = document.createElement("a-entity");
+          Music.setAttribute('sound', {src:"#AladinMusic", autoplay:true});
+          sceneEl.appendChild(Music);
+          console.log(Music);
+          }
+          //miacnel pop erg
+          else if(result[0].transcript=="pop music"||result[0].transcript=="play pop music"||result[0].transcript=="turn on pop music")
+          {
+          var sceneEl = document.getElementById("MyScene");
+          if(Music)
+          {
+            sceneEl.removeChild(Music);
+          }
+          Music = document.createElement("a-entity");
+          Music.setAttribute('sound', {src:"#popMusic", autoplay:true});
+          sceneEl.appendChild(Music);
+          console.log(Music);
+          }
+        }
+        } 
+
+
+
+        else {
+          console.log('Промежуточный результат: ', result[0].transcript);
+        }
+      };
+      
+      
+        recognizer.start();
+        recognizer.onspeechend = function() {
+          recognizer.stop();
+      setTimeout(function(){
+        recognizer.start();
+    }, 500);
+  
+    }
+     
+        
+      //}
+    </script>
+    <a-scene id="MyScene">
+
+        <a-assets>
+            <img id="tsitsernakaberd" crossorigin="anonymous" src="imagesgrass.jpg">
+            <audio id="music-loop" src="aladinmusic.mp3" preload="auto"></audio>
+            <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
+            <!-- <a-mixin id="fade" animation="property: opacity; dur: 1000; to: 0; startEvents: fade"></a-mixin> -->
+            <a-mixin id="toggleVisible" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
+
+            <!-- button mixins -->
+            <a-mixin id="rolloverButton" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow, .buttonText; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow, .buttonText; as: fadeOut;"></a-mixin>
+            <a-mixin id="rolloverAnims" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+
+            <a-mixin id="rolloverButton2" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow2, .buttonText2; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow2, .buttonText2; as: fadeOut;"></a-mixin>
+            <a-mixin id="rolloverAnims2" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+
+            <img id="ring1" src="lamp.png">
+            <img id="glow1" src="lamp.png">
+        </a-assets>
+
+<!-- portal 1 -->
+        <a-entity id="portal_1" position=".56 4 -8" rotation="24 0 0" scale>
+            <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton"></a-entity>
+
+            <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".1"></a-image>
+            <a-text mixin="rolloverAnims" class="buttonText" text="value: TUMO PARK; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
+        </a-entity>
+        <!-- <a-sound src="src: url(aladinmusic.mp3)" autoplay="true" position="0 0 0"></a-sound> -->
 
 
       
@@ -162,11 +278,13 @@ s<!-- <!DOCTYPE html>
                 
             </a-assets> 
 
-            <a-assets>
+            
+
+            <!-- <a-assets>
               <a-assets-item id = "genimtl" src = "cloats.mtl" > </a-assets>
                   
-              </a-assets> 
-
+              </a-assets>  -->
+<!-- 
             <a-assets>
               <a-assets-item id = "genieobj" src = "GENIE 2.obj" > </a-assets>
                   
@@ -175,7 +293,17 @@ s<!-- <!DOCTYPE html>
               <a-assets>
                 <a-assets-item id = "genieobj2" src = "cloats.obj" > </a-assets>
                     
-                </a-assets>
+                </a-assets> -->
+
+                <a-assets>
+                    <a-assets-item id = "genieobj" src = "finaly3.obj" > </a-assets>
+                        
+                    </a-assets>
+                    
+                    <a-assets>
+                        <a-assets-item id = "geniemtl" src = "finaly3.mtl" > </a-assets>
+                            
+                        </a-assets>>
 
               <!-- <a-assets>
                 <a-assets-item id = "geniemtl" src = "genie.mtl" > </a-assets>
@@ -203,6 +331,10 @@ s<!-- <!DOCTYPE html>
        
         
         <a-assets>
+        <!-- Musics -->
+        <audio id="AladinMusic" crossorigin="anonymous" src="AladinMusic.ogg"></audio>
+        <audio id="popMusic" crossorigin="anonymous" src="popMusic.ogg"></audio>
+        <!-- /Musics -->
         <img id="city" crossorigin="anonymous" src="images/grass.jpg">
         <img id="genie" crossorigin="anonymous" src="images/geni.png">
         <img id="laamp" crossorigin="anonymous" src="lamp.png">       
@@ -247,21 +379,24 @@ s<!-- <!DOCTYPE html>
       <a-entity obj-model="obj: #carp;"scale="0.7 0.7 0.7" position="0 -0.05 1.7"material = "color:white;src:#carpet;"></a-entity>
       <a-entity obj-model="obj: #aladdin; mtl: #tree-mtl"rotation = "0 210 0" scale="0.015 0.015 0.015" position="2 0 3.5" ></a-entity>
       <a-entity obj-model="obj: #lamp;"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3,5" material = "color:white;src:#laamp;"
-      event-set__mouseenter="scale: 1.2 1.2 1"
-            event-set__mouseleave="scale: 1 1 1"
-            event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
-            proxy-event="event: click; to: #image-360; as: fade"
+      event-set__mouseenter="scale: 0.5 0.5 0.5"
+            event-set__mouseleave="scale: 0.4 0.4 0.4"
+            event-set__click="_target: #city-thumb; _delay: 300; material.src: ${src}"
+            proxy-event="event: click; to: #city-thumb; as: fade"
             sound="on: click; src: #click-sound"></a-entity>></a-entity>
       <!-- <a-entity obj-model="obj: #genieobj;"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"material = "color:white;src:#genie;"></a-entity> -->
-      <a-entity obj-model="obj: #genieobj;"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4" material = "color:blue;"></a-entity>
-      <a-entity obj-model="obj: #genieobj2; mtl: #geniemtl"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"></a-entity>
+      <!-- <a-entity obj-model="obj: #genieobj; mtl: #geniemtl"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4" material = "color:blue;"></a-entity> -->
+      <!-- <a-entity obj-model="obj: #genieobj2; mtl: #geniemtl"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"></a-entity> -->
       
       <a-entity  text="color: white; align: center; font: aileronsemibold;
-      value: Welcome to " scale="3 3 3" rotation = "0 -90 0" position="4 1.6 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
+      value: Welcome to " scale="4 4 3" rotation = "0 -90 0" position="4 1.6 1.5" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
 ></a-entity>
-<a-entity text="color: white; align: center; font: aileronsemibold; value: 2800th park"scale="7 7 7" rotation = "0 -90 0" position="4 1.4 0"></a-entity>
+<a-entity text="color: white; align: center; font: aileronsemibold; value: 2800th park"scale="8 8 8" rotation = "0 -90 0" position="4 1.4 1.5"></a-entity>
 <a-entity text="color: white; align: center; font: aileronsemibold;
-      value: A VR EXPERIENCE " scale="3 3 3" position="4 1.1 0" rotation = "0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
+      value:Levon Avetyan " scale="4 4 3" position="4 0.9 1.5" rotation = "0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
+></a-entity> 
+<a-entity text="color: white; align: center; font: aileronsemibold;
+      value:Gnel Sedrakyan " scale="4 4 3" position="4 1.1 1.5" rotation = "0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
 ></a-entity> 
 
       <!-- Camera + cursor. -->
