@@ -13,9 +13,10 @@
 </head>
 
 <body>
-    <a-scene sound="src: url(../loops/tsitsernakaberd-loop.mp3); autoplay: true loop: true;">
+    <a-scene>
         <a-assets>
             <img id="tsitsernakaberd" crossorigin="anonymous" src="https://i.imgur.com/Kto7YK9.jpg">
+            <audio id="music-loop" src="../loops/tsitsernakaberd-loop.mp3" preload="auto"></audio>
             <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
             <!-- <a-mixin id="fade" animation="property: opacity; dur: 1000; to: 0; startEvents: fade"></a-mixin> -->
             <a-mixin id="toggleVisible" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
@@ -40,7 +41,7 @@
         </a-entity>
 
 <!-- portal 2 -->
-        <a-entity id="portal_2" position="5 4 -4" rotation="24 -30 0" scale>
+        <a-entity id="portal_2" position="8 4 -0" rotation="24 -60 0" scale>
             <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton2"></a-entity>
 
             <a-image mixin="image rolloverAnims" class="buttonGlow2" src="#ring1" position="0 0 0" opacity=".1"></a-image>
@@ -118,6 +119,7 @@
             <a-entity cursor="downEvents: triggerdown; upEvents: triggerUp" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: blue; shader: flat" position="0 0 -1">
             </a-entity>
         </a-camera>
+        <a-entity sound="src: #music-loop; loop:true; autoplay:true; "></a-entity>
     </a-scene>
 </body>
 
