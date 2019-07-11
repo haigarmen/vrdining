@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>EX06: Text in VR</title>
     <meta name="description" content="360&deg; Image Gallery - A-Frame">
@@ -9,32 +10,37 @@
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-  </head>
-  <body>
-     <a-scene>
-      <a-assets>
-          <img id="tsitsernakaberd" crossorigin="anonymous" src="https://i.imgur.com/Kto7YK9.jpg">
-      </a-assets>
+</head>
 
-      <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#tsitsernakaberd"></a-sky>
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="tsitsernakaberd" crossorigin="anonymous" src="https://i.imgur.com/Kto7YK9.jpg">
+        </a-assets>
 
-      <a-entity text="color: white; align: center; font: aileronsemibold;
-              value: Welcome to " scale="3 3 3" position="0 1.6 -2" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
-></a-entity>
-      <a-entity text="color: white; align: center; font: aileronsemibold; value: TSITSERNAKABERD" scale="7 7 7" position="0 1.4 -2"></a-entity>
-      <a-entity text="color: white; align: center; font: aileronsemibold;
-              value: A VR EXPERIENCE " scale="3 3 3" position="0 1.1 -2" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
-      ></a-entity>      <!-- Camera + cursor. -->
-      <a-entity id="camera" camera look-controls wasd-controls position="0 1.6 0" >
-      <!--         <a-cursor
+        <!-- 360-degree image. -->
+        <a-sky id="image-360" radius="10" src="#tsitsernakaberd"></a-sky>
+
+        <!-- Title page -->
+        <a-entity position="0 0 0" rotation"0 0 0">
+            <a-entity text="color: white; align: center; font: aileronsemibold;
+              value: Welcome to " scale="3 3 3" position="0 1.6 -2" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
+            <a-entity text="color: white; align: center; font: aileronsemibold; value: TSITSERNAKABERD" scale="7 7 7" position="0 1.4 -2"></a-entity>
+            <a-entity text="color: white; align: center; font: aileronsemibold;
+              value: A VR EXPERIENCE " scale="3 3 3" position="0 1.1 -2" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
+        </a-entity>
+
+        <!-- Camera + cursor. -->
+        <a-entity id="camera" camera look-controls wasd-controls position="0 1.6 0">
+            <!--         <a-cursor
           id="cursor"
           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
           animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
           event-set__mouseenter="_event: mouseenter; color: springgreen"
           event-set__mouseleave="_event: mouseleave; color: black"
           raycaster="objects: .link"></a-cursor> -->
-      </a-entity>
+        </a-entity>
     </a-scene>
-  </body>
+</body>
+
 </html>
