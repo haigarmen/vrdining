@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360° Image Gallery</title>
+    <meta name="description" content="360° Image Gallery - A-Frame">
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+    <script src="template-changer.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="mars" crossorigin="anonymous" src="img/mars.jpg">
+        <img id="cosmos" crossorigin="anonymous" src="img/eso0932a.jpg">
+        <img id="tumopark" crossorigin="anonymous" src="img/tumopark_1.jpg">
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+
+           <!-- Image link template to be reused. -->
+                <script id="link" type="text/html">
+                  <a-entity class="link2"
+                    geometry="primitive: sphere; height: 1; width: 1"
+                    material="shader: flat; src: ${thumb}"
+                    event-set__mouseenter="scale: 1.2 1.2 1.2"
+                    event-set__mouseleave="scale: 1 1 1"
+                    event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+                    proxy-event="event: click; to: #image-360; as: fade"
+                    sound="on: click; src: #click-sound"></a-entity>
+                </script>
+      </a-assets>
+
+      <!-- 360-degree image. -->
+      <a-sky id="image-360" radius="10" src="#tumopark"
+             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+
+
+          <!-- sphere links. -->
+      
+<!-- ---------obj-------- -->
+        <a-entity
+          id="links-src-group1"
+          template="src: scenes/links/tumopark.html"
+          position="0 0 0"
+        ></a-entity>
+
+        <a-entity
+            id="template-src-group1"
+            template="src: scenes/tumopark.html"
+            position="0 0 0"
+        ></a-entity>
+
+<!-- ---------obj-------- -->     
+      
+      <!-- Camera + cursor. -->
+
+      <!-- Camera + cursor. -->
+      <a-camera>
+        <a-cursor
+            fuse='true'
+            fuse-timeout='1500'
+        ></a-cursor>
+      </a-camera>
+
+
+    </a-scene>
+  </body>
+</html>
