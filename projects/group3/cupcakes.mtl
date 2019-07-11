@@ -1,0 +1,181 @@
+# Blender MTL File: 'None'
+# Material Count: 14
+
+newmtl 01___Default
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.630000 0.630000 0.630000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/textures/cupcake_b_cup.jpg
+map_Ka dessert tray obj/textures/cupcake_b_cup.jpg
+
+newmtl 01___Defausltss
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.630000 0.630000 0.630000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/Map__102_Color_Correction.tga
+map_Ka dessert tray obj/Map__102_Color_Correction.tga
+
+newmtl 01___Defausltxxxxss
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.630000 0.630000 0.630000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/Map__103_Color_Correction.tga
+map_Ka dessert tray obj/Map__103_Color_Correction.tga
+
+newmtl 02___Default
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.630000 0.630000 0.630000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/textures/4392651590_24f5cc03e6_o.jpg
+map_Bump dessert tray obj/Map__101_Color_Correction.tga
+map_Ka dessert tray obj/textures/4392651590_24f5cc03e6_o.jpg
+refl dessert tray obj/Raytrace_Raytrace.tga
+
+newmtl 07___Default
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.180000 0.180000 0.180000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/textures/cream.jpg
+map_Bump dessert tray obj/textures/cream.jpg
+map_Ka dessert tray obj/textures/cream.jpg
+refl dessert tray obj/Raytrace_Raytrace.tga
+
+newmtl 14___Default2
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.372549 1.000000 0.121569
+Ks 0.360000 0.360000 0.360000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/textures/4396000601_494f609271_o.jpg
+map_Ka dessert tray obj/textures/4396000601_494f609271_o.jpg
+refl dessert tray obj/Raytrace_Raytrace.tga
+
+newmtl Material__2054
+Ns 35.294118
+Ka 0.000000 0.000000 0.000000
+Kd 0.047059 0.047059 0.047059
+Ks 0.900000 0.900000 0.900000
+Ke 0.000000 0.000000 0.000000
+Ni 3.000000
+d 1.000000
+illum 2
+refl dessert tray obj/Raytrace_Raytrace.tga
+
+newmtl Material__39
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.831373 0.145098 0.258824
+Ks 0.810000 0.810000 0.810000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+refl dessert tray obj/Raytrace_Raytrace.tga
+
+newmtl PORCELAIN
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 0.901961
+Ks 0.810000 0.810000 0.810000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+refl dessert tray obj/Raytrace_Raytrace.tga
+
+newmtl banana
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.372549 1.000000 0.121569
+Ks 0.540000 0.540000 0.540000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/textures/banana.jpg
+map_Bump dessert tray obj/Map__104_Color_Correction.tga
+map_Ka dessert tray obj/textures/banana.jpg
+refl dessert tray obj/Raytrace_Raytrace.tga
+
+newmtl dfaf
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.540000 0.540000 0.540000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/textures/cupcake_top.jpg
+map_Bump dessert tray obj/textures/cupcake_top.jpg
+map_Ka dessert tray obj/textures/cupcake_top.jpg
+
+newmtl dfafxxxxx
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.540000 0.540000 0.540000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/textures/cupcake_B_top.jpg
+map_Bump dessert tray obj/textures/cupcake_B_top.jpg
+map_Ka dessert tray obj/textures/cupcake_B_top.jpg
+
+newmtl grape_leaves
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.630000 0.630000 0.630000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/textures/grape_leaf.jpg
+map_Bump dessert tray obj/Map__105_Color_Correction.tga
+map_Ka dessert tray obj/textures/grape_leaf.jpg
+map_d dessert tray obj/textures/grape_leaf_alpha.png
+refl dessert tray obj/Raytrace_Raytrace.tga
+
+newmtl rose_sepal
+Ns 49.019608
+Ka 0.000000 0.000000 0.000000
+Kd 0.500000 0.500000 0.500000
+Ks 0.810000 0.810000 0.810000
+Ke 0.000000 0.000000 0.000000
+Ni 1.600000
+d 1.000000
+illum 2
+map_Kd dessert tray obj/textures/roseSepal_col.bmp
+map_Bump dessert tray obj/textures/roseSepal_bump.bmp
+map_Ka dessert tray obj/textures/roseSepal_col.bmp
+refl dessert tray obj/Raytrace_Raytrace.tga
