@@ -28,8 +28,19 @@
             <a-mixin id="rolloverButton2" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow2, .buttonText2; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow2, .buttonText2; as: fadeOut;"></a-mixin>
             <a-mixin id="rolloverAnims2" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
 
+            <a-mixin id="rolloverButton3" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow3, .buttonText3; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow3, .buttonText3; as: fadeOut;"></a-mixin>
+            <a-mixin id="rolloverAnims3" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+
+            <a-mixin id="rolloverButton4" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow4, .buttonText4; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow4, .buttonText4; as: fadeOut;"></a-mixin>
+            <a-mixin id="rolloverAnims4" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+
+            <a-mixin id="rolloverButton5" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow5, .buttonText5; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow5, .buttonText5; as: fadeOut;"></a-mixin>
+            <a-mixin id="rolloverAnims5" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+
+            <a-mixin id="rolloverButton6" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow6, .buttonText6; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow6, .buttonText6; as: fadeOut;"></a-mixin>
+            <a-mixin id="rolloverAnims6" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+
             <img id="ring1" src="../images/ring1.png">
-            <img id="glow1" src="../images/glow1.png">
         </a-assets>
 
 <!-- portal 1 -->
@@ -41,63 +52,44 @@
         </a-entity>
 
 <!-- portal 2 -->
-        <a-entity id="portal_2" position="8 4 -0" rotation="24 -60 0" scale>
+        <a-entity id="portal_2" position="8 4 -.5" rotation="24 -60 0" scale>
             <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton2"></a-entity>
 
             <a-image mixin="image rolloverAnims" class="buttonGlow2" src="#ring1" position="0 0 0" opacity=".1"></a-image>
             <a-text mixin="rolloverAnims" class="buttonText2" text="value: TUMO LINK 2; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
         </a-entity>
 
-            <!-- <a-entity id="portal_2" position="0 0 -3">
-                <a-image mixin="image spinIt" src="#ring1" position="-5 4.1 -3.5" scale="0.7 0.7 0.7"
-                proxy-event__enter="event: mouseenter; to: a-image; as: fadeIn"
-                proxy-event__leave="event: mouseleave; to: a-image; as: fadeOut"></a-image>
+    <!-- portal 3 -->
+        <a-entity id="portal_3" position="5 3.5 6.5" rotation="24 -110 0" scale>
+            <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton3"></a-entity>
 
-                <a-image mixin="image" src="#glow1" position="-4.4 3.8 -2.5" scale="1.2 1.2 1.2" opacity="0.2" animation__opacity="property: opacity; dur: 500; to: 1; startEvents: fadeIn;"
-                animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-image>
-            </a-entity> -->
+            <a-image mixin="image rolloverAnims" class="buttonGlow3" src="#ring1" position="0 0 0" opacity=".1"></a-image>
+            <a-text mixin="rolloverAnims" class="buttonText3" text="value: TUMO LINK 3; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
+        </a-entity>
 
-        <!-- <a-entity id="portal_3" position="0 0 -3">
-                        <a-image mixin="image spinIt" src="#ring1" position="6 4.2 -2" scale="0.7 0.7 0.7"></a-image>
-                    </a-entity>
+        <!-- portal 4 -->
+            <a-entity id="portal_4" position="-1 3 8" rotation="24 -170 8" scale>
+                <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton4"></a-entity>
 
-                    <a-entity id="portal_4" position="0 0 -3">
-                            <a-image mixin="image spinIt" src="#ring1" position="8.4 4.1 2.4" scale="0.7 0.7 0.7"></a-image>
-                        </a-entity>
+                <a-image mixin="image rolloverAnims" class="buttonGlow4" src="#ring1" position="0 0 0" opacity=".1"></a-image>
+                <a-text mixin="rolloverAnims" class="buttonText4" text="value: TUMO LINK 4; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
+            </a-entity>
 
-                        <a-entity id="portal_5" position="0 0 -3">
-                                <a-image mixin="image spinIt" src="#ring1" position="7.9 4.1 7" scale="0.7 0.7 0.7"></a-image>
-                            </a-entity>
+        <!-- portal 5 -->
+            <a-entity id="portal_5" position="-7.28 3 5.6" rotation="24 -230 8" scale>
+                <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton5"></a-entity>
 
-                            <a-entity id="portal_6" position="0 0 -3">
-                                    <a-image mixin="image spinIt" src="#ring1" position="5.4 3.8 10" scale="0.7 0.7 0.7"></a-image>
-                                </a-entity>
+                <a-image mixin="image rolloverAnims" class="buttonGlow5" src="#ring1" position="0 0 0" opacity=".1"></a-image>
+                <a-text mixin="rolloverAnims" class="buttonText5" text="value: TUMO LINK 5; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
+            </a-entity>
 
-                                <a-entity id="portal_7" position="0 0 -3">
-                                        <a-image mixin="image spinIt" src="#ring1" position="2.2 3.8 11.7" scale="0.7 0.7 0.7"></a-image>
-                                    </a-entity>
+        <!-- portal 6 -->
+            <a-entity id="portal_6" position="-8.46 3.5 -2.5" rotation="24 -290 8" scale>
+                <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton6"></a-entity>
 
-                                    <a-entity id="portal_8" position="0 0 -3">
-                                            <a-image mixin="image spinIt" src="#ring1" position="-1.1 3.7 12" scale="0.7 0.7 0.7"></a-image>
-                                        </a-entity>
-
-                                        <a-entity id="portal_9" position="0 0 -3">
-                                                <a-image mixin="image spinIt" src="#ring1" position="-4.4 3.7 11" scale="0.7 0.7 0.7"></a-image>
-                                            </a-entity>
-
-                                            <a-entity id="portal_10" position="0 0 -3">
-                                                    <a-image mixin="image spinIt" src="#ring1" position="-6.8 3.7 8.4" scale="0.7 0.7 0.7"></a-image>
-                                                </a-entity>
-
-                                                <a-entity id="portal_11" position="0 0 -3">
-                                                        <a-image mixin="image spinIt" src="#ring1" position="-8.6 3.7 4.9" scale="0.7 0.7 0.7"></a-image>
-                                                    </a-entity>
-
-                                                    <a-entity id="portal_12" position="0 0 -3">
-                                                            <a-image mixin="image spinIt" src="#ring1" position="-8.4 3.6 .6" scale="0.7 0.7 0.7"></a-image>
-                                                        </a-entity> -->
-
-
+                <a-image mixin="image rolloverAnims" class="buttonGlow6" src="#ring1" position="0 0 0" opacity=".1"></a-image>
+                <a-text mixin="rolloverAnims" class="buttonText6" text="value: TUMO LINK 6; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
+            </a-entity>
 
 
         </a-assets>
@@ -119,7 +111,7 @@
             <a-entity cursor="downEvents: triggerdown; upEvents: triggerUp" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: blue; shader: flat" position="0 0 -1">
             </a-entity>
         </a-camera>
-        <a-entity sound="src: #music-loop; loop:true; autoplay:true; "></a-entity>
+        <!-- <a-entity sound="src: #music-loop; loop:true; autoplay:true; "></a-entity> -->
     </a-scene>
 </body>
 
