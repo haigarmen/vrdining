@@ -1,132 +1,3 @@
-s<!-- <!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <title>Hello, WebVR! • A-Frame</title>
-  <meta name="description" content="Hello, WebVR! • A-Frame">
-  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
-  <script src="https://unpkg.com/aframe-layout-component@3.x.x/dist/aframe-layout-component.min.js"></script>
-  <script src="https://unpkg.com/aframe-event-set-component@3.x.x/dist/aframe-event-set-component.min.js"></script>
-</head>
-
-<body>
-  <a-scene>
-    <a-assets>
-      <audio id="click-sound" src="shoot.ogg"></audio>
-
-      
-      <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
-      <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-      <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-      <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-      <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-      <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
-
-      
-      <script id="link" type="text/html">
-        <a-entity class="link"
-          geometry="primitive: plane; height: 1; width: 1"
-          material="shader: flat; src: ${thumb}"
-          sound="on: click; src: #click-sound"
-          event-set__mouseenter="scale: 1.2 1.2 1"
-          event-set__mouseleave="scale: 1 1 1"
-          event-set__click="_target: #360-image; _delay: 300; material.src: ${src}"></a-entity>
-      </script>
-    </a-assets>
-
-    
-    <a-sky id="image-360" radius="10" src="#city"></a-sky>
-
-   
-    <a-entity id="links" layout="layout: line; margin: 1.5" position="-3 -1 -4">
-      <a-entity template="src: #plane" data-thumb="#city-thumb"></a-entity>
-      <a-entity template="src: #plane" data-thumb="#cubes-thumb"></a-entity>
-      <a-entity template="src: #plane" data-thumb="#sechelt-thumb"></a-entity>
-    </a-entity>
-    
-
-
-    
-    <a-camera>
-      <a-cursor id="cursor" animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
-        animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click" animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
-    </a-camera>
-  </a-scene>
-
-</body>
-
-</html> -->
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <title>Hello, WebVR! • A-Frame</title>
-  <meta name="description" content="Hello, WebVR! • A-Frame">
-  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
-  <script src="https://unpkg.com/aframe-layout-component@3.x.x/dist/aframe-layout-component.min.js"></script>
-  <script src="https://unpkg.com/aframe-event-set-component@3.x.x/dist/aframe-event-set-component.min.js"></script>
-</head>
-
-<body>
-  <a-scene>
-    <a-assets>
-      <audio id="click-sound" src="shoot2.ogg"></audio>
-
-      
-      <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
-      <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-      <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-      <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-      <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-      <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
-
-      <script id="plane" type="text/html">
-        <a-entity class="link"
-          geometry="primitive: plane; height: 1; width: 1"
-          material="shader: flat; src: #cubes-thumb"
-          sound="on: click; src: #click-sound"></a-entity>
-      </script>
-     
-    </a-assets>
-
-    
-    <a-sky id="image-360" radius="10" src="#city"></a-sky>
-
-   
-    <a-entity id="links" layout="layout: line; margin: 1.5" position="-3 -1 -4">
-      <a-entity template="src: #plane" data-thumb="#city-thumb"></a-entity>
-      <a-entity template="src: #plane" data-thumb="#cubes-thumb"></a-entity>
-      <a-entity template="src: #plane" data-thumb="#sechelt-thumb"></a-entity>
-    </a-entity>
-
-
-
-
-    
-    <a-camera>
-      <a-cursor id="cursor" animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
-        animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click" animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
-    </a-camera>
-  </a-scene>
-
-</body>
-
-</html> -->
-
-
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -144,9 +15,9 @@ s<!-- <!DOCTYPE html>
       //recognizer{
         var recognizer = new webkitSpeechRecognition();
         var body = document.querySelector('body');
-        var genie = false; 
+        var genie = false;
         var Music;
-        
+
 
       // Ставим опцию, чтобы распознавание началось ещё до того, как пользователь закончит говорить
       recognizer.interimResults = true;
@@ -211,7 +82,7 @@ s<!-- <!DOCTYPE html>
           console.log(Music);
           }
         }
-        } 
+        }
 
 
 
@@ -219,25 +90,25 @@ s<!-- <!DOCTYPE html>
           console.log('Промежуточный результат: ', result[0].transcript);
         }
       };
-      
-      
+
+
         recognizer.start();
         recognizer.onspeechend = function() {
           recognizer.stop();
       setTimeout(function(){
         recognizer.start();
     }, 500);
-  
+
     }
-     
-        
+
+
       //}
     </script>
     <a-scene id="MyScene">
 
         <a-assets>
             <img id="tsitsernakaberd" crossorigin="anonymous" src="https://i.imgur.com/Kto7YK9.jpg">
-            <audio id="music-loop" src="music/tsitsernakaberd-loop.ogg" preload="metadata"></audio>
+            <audio id="music-loop" src="../../loops/abandon-window-loop.ogg" preload="metadata"></audio>
             <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
             <!-- <a-mixin id="fade" animation="property: opacity; dur: 1000; to: 0; startEvents: fade"></a-mixin> -->
             <a-mixin id="toggleVisible" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
@@ -250,7 +121,7 @@ s<!-- <!DOCTYPE html>
             <a-mixin id="rolloverAnims2" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
 
             <img id="ring1" src="../../images/ring1.png">
-            
+
         </a-assets>
 
 <!-- portal 1 -->
@@ -272,76 +143,76 @@ s<!-- <!DOCTYPE html>
         <!-- <a-sound src="src: url(aladinmusic.mp3)" autoplay="true" position="0 0 0"></a-sound> -->
 
 
-      
+
             <!-- <a-assets-item id = "aladdin" src = "pic/Aladdin.obj" > </a-assets>
-              
+
             </a-assets>  -->
       <a-assets>
         <!-- <a-assets-item id = "object" src = "arch.obj" > </a-assets> -->
-        <a-assets-item id = "carp" src = "magiccarpet.obj" > 
-        
+        <a-assets-item id = "carp" src = "magiccarpet.obj" >
+
         </a-assets>
         <a-assets>
             <a-assets-item id = "aladdin" src = "Aladdin/newAladdin.obj" > </a-assets>
-                
-            </a-assets> 
+
+            </a-assets>
             <a-assets>
             <a-assets-item id = "tree-mtl" src = "Aladdin/newAladdin.mtl" > </a-assets>
-                
-            </a-assets> 
 
-            
+            </a-assets>
+
+
 
             <!-- <a-assets>
               <a-assets-item id = "genimtl" src = "cloats.mtl" > </a-assets>
-                  
+
               </a-assets>  -->
-<!-- 
+<!--
             <a-assets>
               <a-assets-item id = "genieobj" src = "GENIE 2.obj" > </a-assets>
-                  
+
               </a-assets>
-              
+
               <a-assets>
                 <a-assets-item id = "genieobj2" src = "cloats.obj" > </a-assets>
-                    
+
                 </a-assets> -->
 
                 <a-assets>
                     <a-assets-item id = "genieobj" src = "finaly3.obj" > </a-assets>
-                        
+
                     </a-assets>
-                    
+
                     <a-assets>
                         <a-assets-item id = "geniemtl" src = "finaly3.mtl" > </a-assets>
-                            
+
                         </a-assets>>
 
               <!-- <a-assets>
                 <a-assets-item id = "geniemtl" src = "genie.mtl" > </a-assets>
-                    
+
                 </a-assets>  -->
             <!-- <a-assets-item id = "jin" src = "genie/genie.obj" > </a-assets>
-                
-            </a-assets> 
+
+            </a-assets>
             <a-assets>
                 <a-assets-item id = "jinn" src = "genie/genie.mtl" > </a-assets>
-                  
+
                 </a-assets>  -->
             <a-assets>
                 <a-assets-item id = "lamp" src = "lamp.obj" > </a-assets>
-                    
-                </a-assets> 
+
+                </a-assets>
         <a-assets>
             <a-assets-item id = "arch" src = "arch/Arch.obj" > </a-assets>
-              
-            </a-assets> 
-          
-             
-              
-                
-       
-        
+
+            </a-assets>
+
+
+
+
+
+
         <a-assets>
         <!-- Musics -->
         <audio id="AladinMusic" crossorigin="anonymous" src="AladinMusic.ogg"></audio>
@@ -349,8 +220,8 @@ s<!-- <!DOCTYPE html>
         <!-- /Musics -->
         <img id="city" crossorigin="anonymous" src="images/grass.jpg">
         <img id="genie" crossorigin="anonymous" src="images/geni.png">
-        <img id="laamp" crossorigin="anonymous" src="lamp.png">             
-        <img id="carpet" crossorigin="arch" src="images/texture.jpg">                
+        <img id="laamp" crossorigin="anonymous" src="lamp.png">
+        <img id="carpet" crossorigin="arch" src="images/texture.jpg">
         <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
         <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
@@ -359,38 +230,38 @@ s<!-- <!DOCTYPE html>
         <!-- Image link template to be reused. -->
         <script id="link" type="text/html">
           <a-entity class="link"
-          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}" 
-          proxy-event="event: click; to: #image-360; as: fade" 
+          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+          proxy-event="event: click; to: #image-360; as: fade"
            geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton"></a-entity>
 
           <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".2"></a-image>
           <a-text mixin="rolloverAnims" class="buttonText" text="value:Second View; align: center; color:#FFF" opacity="0.03" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
-           
+
           </a-entity>
 
-          
+
         </script>
 
 
         <script id="link2" type="text/html">
-          
+
 
           <a-entity class="link2"
-          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}" 
-          proxy-event="event: click; to: #image-360; as: fade" 
+          event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+          proxy-event="event: click; to: #image-360; as: fade"
            geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton"></a-entity>
 
           <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".2"></a-image>
           <a-text mixin="rolloverAnims" class="buttonText" text="value:First View; align: center; color:#FFF" opacity="0.03" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
-           
+
           </a-entity>
         </script>
-        
+
       </a-assets>
 
-      
-  
-      
+
+
+
 
       <!-- 360-degree image. -->
       <a-sky id="image-360" radius="70" src="#city" rotation="0 180 0"
@@ -405,8 +276,8 @@ s<!-- <!DOCTYPE html>
       <a-entity id="links2" layout="type: line; margin: 1.5" position="0 3 -4" >
         <a-entity template="src: #link2" data-src="#city" data-thumb="#city-thumb"></a-entity>
       </a-entity>
-      
-     
+
+
       <a-entity obj-model="obj: #carp;"scale="0.7 0.7 0.7" position="0 -0.05 1.7"material = "color:white;src:#carpet;"></a-entity>
       <a-entity obj-model="obj: #aladdin; mtl: #tree-mtl"rotation = "0 210 0" scale="0.015 0.015 0.015" position="2 0 3.5" ></a-entity>
       <a-entity obj-model="obj: #lamp;"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3.5" material = "color:white;src:#laamp;side: double;"
@@ -414,17 +285,17 @@ s<!-- <!DOCTYPE html>
       <!-- <a-entity obj-model="obj: #genieobj;"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"material = "color:white;src:#genie;"></a-entity> -->
       <!-- <a-entity obj-model="obj: #genieobj; mtl: #geniemtl"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4" material = "color:blue;"></a-entity> -->
       <!-- <a-entity obj-model="obj: #genieobj2; mtl: #geniemtl"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"></a-entity> -->
-      
+
       <a-entity  text="color: white; align: center; font: aileronsemibold;
       value: Welcome to " scale="4 4 3" rotation = "0 -90 0" position="4 1.6 1.5" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
 ></a-entity>
 <a-entity text="color: white; align: center; font: aileronsemibold; value: 2800th park"scale="8 8 8" rotation = "0 -90 0" position="4 1.4 1.5"></a-entity>
 <a-entity text="color: white; align: center; font: aileronsemibold;
       value:Levon Avetyan " scale="4 4 3" position="4 0.9 1.5" rotation = "0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
-></a-entity> 
+></a-entity>
 <a-entity text="color: white; align: center; font: aileronsemibold;
       value:Gnel Sedrakyan " scale="4 4 3" position="4 1.1 1.5" rotation = "0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
-></a-entity> 
+></a-entity>
 
 <a-entity text="color: white; align: center; font: aileronsemibold;
       value: MENU
@@ -432,17 +303,9 @@ s<!-- <!DOCTYPE html>
             if you say music, Genie will start music
             If you touch on second view, you will go to another location
             If you touch lamp, you will go to the Brainstorm room" scale="8 8 8" position="-4.2 1.1 1.5" rotation = "0 90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
-></a-entity> 
+></a-entity>
 
-      <!-- Camera + cursor. -->
-      <!-- <a-entity id="camera" camera look-controls> -->  
-        <!-- <a-cursor
-          id="cursor"
-          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-          event-set__mouseenter="_event: mouseenter; color: springgreen"
-          event-set__mouseleave="_event: mouseleave; color: black"
-          raycaster="objects: .link"></a-cursor> -->
+
           <a-entity rotation="0 180 0">
           <a-camera>
             <a-cursor
