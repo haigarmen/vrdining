@@ -13,7 +13,7 @@
   <body>
     <a-scene>
       <a-assets>
-        <img id="city" crossorigin="anonymous" src="brainstorm-room.jpg"/>
+        <img id="city" crossorigin="anonymous" src="https://i.imgur.com/DwuYmc6.jpg"/>
             <audio id="music-loop" src="../../loops/invisibility-loop.ogg" preload="auto"></audio>
             <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
 
@@ -29,38 +29,18 @@
             <img id="ring1" src="../../images/ring1.png" >
 
 
-         
-        <img id="board" crossorigin="anonymous" src="1024px-Whiteboard_with_markers.jpg" />
 
-        
-
-         <a-asset-item id="table" src="simple_table.obj"></a-asset-item>
-
-         <!-- <a-asset-item id="man" src="14606_monitor_guySitting_V1.obj"></a-asset-item>
-
-         <a-asset-item id="man2" src="14606_monitor_guySitting_V1.obj"></a-asset-item>
-
-         <a-asset-item id="running" src="11083_Man_Running_v2.obj"></a-asset-item> -->
-
-         <a-asset-item id="crate-obj" src="stickman.obj"></a-asset-item>
-
-         <a-asset-item id="crate-obj2" src="stickman.obj"></a-asset-item>
-
-         <a-asset-item id="crate-obj3" src="stickman.obj"></a-asset-item>
-
-         <a-asset-item id="crate-obj4" src="stickman.obj"></a-asset-item>
-
-         <a-asset-item id="candt" src="objCandtBowl.obj"></a-asset-item>
-
-         <a-asset-item id="candtmtl" src="objCandtBowl.mtl"></a-asset-item>
-
-         <a-asset-item id="apple" src="apple.obj"></a-asset-item>
-
-         <a-asset-item id="dessert" src="cupcakes.obj"></a-asset-item>
-
-         <a-asset-item id="dessertmtl" src="cupcakes.mtl"></a-asset-item>
-
-
+        <img id="board" crossorigin="anonymous" src="images/1024px-Whiteboard_with_markers.jpg" />
+         <a-asset-item id="table" src="assets/simple_table.obj"></a-asset-item>
+         <a-asset-item id="crate-obj" src="assets/stickman.obj"></a-asset-item>
+         <a-asset-item id="crate-obj2" src="assets/stickman.obj"></a-asset-item>
+         <a-asset-item id="crate-obj3" src="assets/stickman.obj"></a-asset-item>
+         <a-asset-item id="crate-obj4" src="assets/stickman.obj"></a-asset-item>
+         <a-asset-item id="candt" src="assets/objCandtBowl.obj"></a-asset-item>
+         <a-asset-item id="candtmtl" src="assets/objCandtBowl.mtl"></a-asset-item>
+         <a-asset-item id="apple" src="assets/apple.obj"></a-asset-item>
+         <a-asset-item id="dessert" src="assets/cupcakes.obj"></a-asset-item>
+         <a-asset-item id="dessertmtl" src="assets/cupcakes.mtl"></a-asset-item>
        <script id="link" type="text/html">
           <a-entity class="link"
             geometry="primitive: plane; height: 2; width: 2"
@@ -71,7 +51,7 @@
             proxy-event="event: click; to: #image-360; as: fade"
             sound="on: click; src: #click-sound"></a-entity>
         </script>
-      </a-assets>  
+      </a-assets>
 
       <a-entity id="portal_1" position="7.768 0.010 -4.841" rotation="0 -90 0" link="href: ../../index.html" title="Tsitsernakabert">
             <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="button" ></a-entity>
@@ -131,16 +111,16 @@
             animation__mouseenter="property: components.material.material.color; type: color; to: black; startEvents: mouseenter; dur: 500";
             animation__mouseleave="property: components.material.material.color; type: color; to: white; startEvents: mouseleave; dur: 500";></a-entity>
 
-       <a-sky id="image-360" radius="10" src="#city" rotation="0 90 0" 
+       <a-sky id="image-360" radius="10" src="#city" rotation="0 90 0"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky> 
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
 
         <a-image src="#board" width="6" height="3" position="0 0.12 -9.39"></a-image>
 
         <a-entity link="href: links.html; title: Link; image: #button"></a-entity>
 
-        
+
 
       <a-camera>
                <a-cursor
@@ -150,11 +130,7 @@
              </a-camera>
 
       <a-entity sound="src: #music-loop; loop:true; autoplay:true; "></a-entity>
-      
+
     </a-scene>
   </body>
-</html> 
-
-
-
-
+</html>
