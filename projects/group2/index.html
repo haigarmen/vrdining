@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>360° Image Gallery</title>
     <meta name="description" content="360° Image Gallery - A-Frame">
@@ -9,10 +10,11 @@
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <script>
-      //recognizer{
+        //recognizer{
         var recognizer = new webkitSpeechRecognition();
         var body = document.querySelector('body');
         var genie = false;
@@ -104,217 +106,106 @@
 
       //}
     </script>
-    <a-scene id="MyScene">
 
-        <a-assets>
-            <img id="tsitsernakaberd" crossorigin="anonymous" src="https://i.imgur.com/Kto7YK9.jpg">
-            <audio id="music-loop" src="../../loops/abandon-window-loop.ogg" preload="metadata"></audio>
-            <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
-            <!-- <a-mixin id="fade" animation="property: opacity; dur: 1000; to: 0; startEvents: fade"></a-mixin> -->
-            <a-mixin id="toggleVisible" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
+<a-scene id="MyScene">
 
-            <!-- button mixins -->
-            <a-mixin id="rolloverButton" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow, .buttonText; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow, .buttonText; as: fadeOut;"></a-mixin>
-            <a-mixin id="rolloverAnims" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+    <a-assets>
+        <img id="tsitsernakaberd" crossorigin="anonymous" src="https://i.imgur.com/Kto7YK9.jpg">
+        <audio id="music-loop" src="../../loops/abandon-window-loop.ogg" preload="metadata"></audio>
+        <a-mixin id="image" geometry="height: 2; width: 2"></a-mixin>
+        <!-- <a-mixin id="fade" animation="property: opacity; dur: 1000; to: 0; startEvents: fade"></a-mixin> -->
+        <a-mixin id="toggleVisible" animation="property: visible; from: false; to: true; dur: 1" visible="false"></a-mixin>
 
-            <a-mixin id="rolloverButton2" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow2, .buttonText2; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow2, .buttonText2; as: fadeOut;"></a-mixin>
-            <a-mixin id="rolloverAnims2" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+        <!-- button mixins -->
+        <a-mixin id="rolloverButton" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow, .buttonText; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow, .buttonText; as: fadeOut;"></a-mixin>
+        <a-mixin id="rolloverAnims" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
 
-            <img id="ring1" src="../../images/ring1.png">
-
-        </a-assets>
-
-<!-- portal 1 -->
-        <a-entity id="portal_1" position="-0.6 0 3.3" rotation="0 180 0" scale>
-            <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton"></a-entity>
-
-            <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".1"></a-image>
-            <a-text mixin="rolloverAnims" class="buttonText" text="value: Brainstorm room; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
-        </a-entity>
-
-        <!-- portal 2 -->
-        <!-- <a-entity id="portal_2" position="0 -1 -4" rotation="0 0 0" scale>
-          <a-entity geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton2"></a-entity>
-
-          <a-image mixin="image rolloverAnims" class="buttonGlow2" src="#ring1" position="0 0 0" opacity=".1"></a-image>
-          <a-text mixin="rolloverAnims" class="buttonText2" text="value: TUMO LINK 2; align: center; color:#FFF" opacity="0.01" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
-      </a-entity> -->
-
-        <!-- <a-sound src="src: url(aladinmusic.mp3)" autoplay="true" position="0 0 0"></a-sound> -->
-
-
-
-            <!-- <a-assets-item id = "aladdin" src = "pic/Aladdin.obj" > </a-assets>
-
-            </a-assets>  -->
-      <a-assets>
-        <!-- <a-assets-item id = "object" src = "arch.obj" > </a-assets> -->
-        <a-assets-item id = "carp" src = "magiccarpet.obj" >
-
-        </a-assets>
-        <a-assets>
-            <a-assets-item id = "aladdin" src = "Aladdin/newAladdin.obj" > </a-assets>
-
-            </a-assets>
-            <a-assets>
-            <a-assets-item id = "tree-mtl" src = "Aladdin/newAladdin.mtl" > </a-assets>
-
-            </a-assets>
-
-
-
-            <!-- <a-assets>
-              <a-assets-item id = "genimtl" src = "cloats.mtl" > </a-assets>
-
-              </a-assets>  -->
-<!--
-            <a-assets>
-              <a-assets-item id = "genieobj" src = "GENIE 2.obj" > </a-assets>
-
-              </a-assets>
-
-              <a-assets>
-                <a-assets-item id = "genieobj2" src = "cloats.obj" > </a-assets>
-
-                </a-assets> -->
-
-                <a-assets>
-                    <a-assets-item id = "genieobj" src = "finaly3.obj" > </a-assets>
-
-                    </a-assets>
-
-                    <a-assets>
-                        <a-assets-item id = "geniemtl" src = "finaly3.mtl" > </a-assets>
-
-                        </a-assets>>
-
-              <!-- <a-assets>
-                <a-assets-item id = "geniemtl" src = "genie.mtl" > </a-assets>
-
-                </a-assets>  -->
-            <!-- <a-assets-item id = "jin" src = "genie/genie.obj" > </a-assets>
-
-            </a-assets>
-            <a-assets>
-                <a-assets-item id = "jinn" src = "genie/genie.mtl" > </a-assets>
-
-                </a-assets>  -->
-            <a-assets>
-                <a-assets-item id = "lamp" src = "lamp.obj" > </a-assets>
-
-                </a-assets>
-        <a-assets>
-            <a-assets-item id = "arch" src = "arch/Arch.obj" > </a-assets>
-
-            </a-assets>
-
-
-
-
-
-
-        <a-assets>
+        <a-mixin id="rolloverButton2" position="0 0 0" scale="0.7 0.01 0.7" rotation="90 0 0" proxy-event__enter="event: mouseenter; to: .buttonGlow2, .buttonText2; as: fadeIn;" proxy-event__leave="event: mouseleave; to: .buttonGlow2, .buttonText2; as: fadeOut;"></a-mixin>
+        <a-mixin id="rolloverAnims2" animation__opacity="property: opacity; dur: 500; to: .8; startEvents: fadeIn;" animation__opacity2="property: opacity; dur: 500; to: .2; startEvents: fadeOut"></a-mixin>
+        <img id="ring1" src="../../images/ring1.png">
+        <a-assets-item id="carp" src="assets/magiccarpet.obj">
+        <a-assets-item id="aladdin" src="assets/Aladdin/newAladdin.obj">
+        <a-assets-item id="tree-mtl" src="assets/Aladdin/newAladdin.mtl">
+        <a-assets-item id="genieobj" src="assets/finaly3.obj">
+        <a-assets-item id="geniemtl" src="assets/finaly3.mtl">
+        <a-assets-item id="lamp" src="assets/lamp.obj">
+        <a-assets-item id="arch" src="arch/Arch.obj">
         <!-- Musics -->
-        <audio id="AladinMusic" crossorigin="anonymous" src="AladinMusic.ogg"></audio>
-        <audio id="popMusic" crossorigin="anonymous" src="popMusic.ogg"></audio>
-        <!-- /Musics -->
-        <img id="city" crossorigin="anonymous" src="images/grass.jpg">
+        <audio id="AladinMusic" crossorigin="anonymous" src="music/AladinMusic.ogg"></audio>
+        <img id="city" crossorigin="anonymous" src="https://i.imgur.com/w50KGvL.jpg">
         <img id="genie" crossorigin="anonymous" src="images/geni.png">
-        <img id="laamp" crossorigin="anonymous" src="lamp.png">
+        <img id="laamp" crossorigin="anonymous" src="images/lamp.png">
         <img id="carpet" crossorigin="arch" src="images/texture.jpg">
-        <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-        <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <img id="cubes" crossorigin="anonymous" src="photo.jpg">
+        <img id="cubes" crossorigin="anonymous" src="https://i.imgur.com/FenMvsI.jpg">
 
-        <!-- Image link template to be reused. -->
-        <script id="link" type="text/html">
-          <a-entity class="link"
+    <!-- Image link template to be reused. -->
+    <script id="link" type="text/html">
+        <a-entity class="link"
           event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
           proxy-event="event: click; to: #image-360; as: fade"
            geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton"></a-entity>
-
           <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".2"></a-image>
           <a-text mixin="rolloverAnims" class="buttonText" text="value:Second View; align: center; color:#FFF" opacity="0.03" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
-
           </a-entity>
-
-
         </script>
-
-
-        <script id="link2" type="text/html">
-
-
-          <a-entity class="link2"
+    <script id="link2" type="text/html">
+        <a-entity class="link2"
           event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
           proxy-event="event: click; to: #image-360; as: fade"
            geometry="primitive: cylinder" material="side: double; color: #fff; opacity: .02" mixin="rolloverButton"></a-entity>
-
           <a-image mixin="image rolloverAnims" class="buttonGlow" src="#ring1" position="0 0 0" opacity=".2"></a-image>
           <a-text mixin="rolloverAnims" class="buttonText" text="value:First View; align: center; color:#FFF" opacity="0.03" scale="0.8 0.8 0.8" position="0 1 0"> </a-text>
-
           </a-entity>
-        </script>
+    </script>
 
-      </a-assets>
-
-
+</a-assets>
 
 
+            <!-- 360-degree image. -->
+            <a-sky id="image-360" radius="70" src="#city" rotation="0 180 0" animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade" animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
-      <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="70" src="#city" rotation="0 180 0"
-             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
-             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+            <!-- Image links. -->
+            <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+                <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
+            </a-entity>
 
-      <!-- Image links. -->
-      <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4" >
-        <a-entity template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
-      </a-entity>
-
-      <a-entity id="links2" layout="type: line; margin: 1.5" position="0 3 -4" >
-        <a-entity template="src: #link2" data-src="#city" data-thumb="#city-thumb"></a-entity>
-      </a-entity>
+            <a-entity id="links2" layout="type: line; margin: 1.5" position="0 3 -4">
+                <a-entity template="src: #link2" data-src="#city" data-thumb="#city-thumb"></a-entity>
+            </a-entity>
 
 
-      <a-entity obj-model="obj: #carp;"scale="0.7 0.7 0.7" position="0 -0.05 1.7"material = "color:white;src:#carpet;"></a-entity>
-      <a-entity obj-model="obj: #aladdin; mtl: #tree-mtl"rotation = "0 210 0" scale="0.015 0.015 0.015" position="2 0 3.5" ></a-entity>
-      <a-entity obj-model="obj: #lamp;"rotation = "0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3.5" material = "color:white;src:#laamp;side: double;"
-      ></a-entity>></a-entity>
-      <!-- <a-entity obj-model="obj: #genieobj;"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"material = "color:white;src:#genie;"></a-entity> -->
-      <!-- <a-entity obj-model="obj: #genieobj; mtl: #geniemtl"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4" material = "color:blue;"></a-entity> -->
-      <!-- <a-entity obj-model="obj: #genieobj2; mtl: #geniemtl"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"></a-entity> -->
+            <a-entity obj-model="obj: #carp;" scale="0.7 0.7 0.7" position="0 -0.05 1.7" material="color:white;src:#carpet;"></a-entity>
+            <a-entity obj-model="obj: #aladdin; mtl: #tree-mtl" rotation="0 210 0" scale="0.015 0.015 0.015" position="2 0 3.5"></a-entity>
+            <a-entity obj-model="obj: #lamp;" rotation="0 -90 0" scale="0.4 0.4 0.4" position="-0.6 0 3.5" material="color:white;src:#laamp;side: double;"></a-entity>></a-entity>
+            <!-- <a-entity obj-model="obj: #genieobj;"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"material = "color:white;src:#genie;"></a-entity> -->
+            <!-- <a-entity obj-model="obj: #genieobj; mtl: #geniemtl"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4" material = "color:blue;"></a-entity> -->
+            <!-- <a-entity obj-model="obj: #genieobj2; mtl: #geniemtl"rotation = "0 -210 0" scale="0.4 0.4 0.4" position="-1.7 -1 4"></a-entity> -->
 
-      <a-entity  text="color: white; align: center; font: aileronsemibold;
-      value: Welcome to " scale="4 4 3" rotation = "0 -90 0" position="4 1.6 1.5" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
-></a-entity>
-<a-entity text="color: white; align: center; font: aileronsemibold; value: 2800th park"scale="8 8 8" rotation = "0 -90 0" position="4 1.4 1.5"></a-entity>
-<a-entity text="color: white; align: center; font: aileronsemibold;
-      value:Levon Avetyan " scale="4 4 3" position="4 0.9 1.5" rotation = "0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
-></a-entity>
-<a-entity text="color: white; align: center; font: aileronsemibold;
-      value:Gnel Sedrakyan " scale="4 4 3" position="4 1.1 1.5" rotation = "0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
-></a-entity>
+            <a-entity text="color: white; align: center; font: aileronsemibold;
+value: Welcome to " scale="4 4 3" rotation="0 -90 0" position="4 1.6 1.5" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
+            <a-entity text="color: white; align: center; font: aileronsemibold; value: 2800th park" scale="8 8 8" rotation="0 -90 0" position="4 1.4 1.5"></a-entity>
+            <a-entity text="color: white; align: center; font: aileronsemibold;
+value:Levon Avetyan " scale="4 4 3" position="4 0.9 1.5" rotation="0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
+            <a-entity text="color: white; align: center; font: aileronsemibold;
+value:Gnel Sedrakyan " scale="4 4 3" position="4 1.1 1.5" rotation="0 -90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
 
-<a-entity text="color: white; align: center; font: aileronsemibold;
-      value: MENU
-            If you call Genie or say okay, he will appear
-            if you say music, Genie will start music
-            If you touch on second view, you will go to another location
-            If you touch lamp, you will go to the Brainstorm room" scale="8 8 8" position="-4.2 1.1 1.5" rotation = "0 90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"
-></a-entity>
+            <a-entity text="color: white; align: center; font: aileronsemibold;
+value: MENU
+If you call Genie or say okay, he will appear
+if you say music, Genie will start music
+If you touch on second view, you will go to another location
+If you touch lamp, you will go to the Brainstorm room"
+                scale="8 8 8" position="-4.2 1.1 1.5" rotation="0 90 0" geometry="primitive: plane; width: .9; height: auto" material="transparent: true; opacity: 0.25"></a-entity>
 
 
-          <a-entity rotation="0 180 0">
-          <a-camera>
-            <a-cursor
-                fuse='true'
-                fuse-timeout='1000'
-            ></a-cursor>
-          </a-camera>
-          <a-entity sound="src: #music-loop; loop:true; autoplay:true; "></a-entity>
-        </a-entity>
+            <a-entity rotation="0 180 0">
+                <a-camera>
+                    <a-cursor fuse='true' fuse-timeout='1000'></a-cursor>
+                </a-camera>
+                <a-entity sound="src: #music-loop; loop:true; autoplay:true; "></a-entity>
+            </a-entity>
     </a-scene>
-  </body>
+</body>
+
 </html>
